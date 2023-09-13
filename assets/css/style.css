@@ -1,0 +1,45 @@
+
+
+
+header {
+    background-color: #141C1D;
+}
+
+#logo {
+    font-family: ;
+    font-size: ;
+    color: #9ddb0a;
+}
+
+
+#wrapper {
+   /* display: flex;  */
+   background-color: #39406c;
+}
+
+footer {
+    background-color: #b4bade;
+}
+
+#screen {
+    width: 320px;
+    height: 240px;
+    background-color: #9ddb0a;
+}
+
+#score {
+    font-family: ;
+    font-size: ;
+}
+
+#screenLine {
+    background-color: #283c01;
+}
+
+#snakeboard {
+    position: absolute;
+    border: 3px solid #283c01;
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+}
