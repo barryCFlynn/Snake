@@ -3,6 +3,10 @@
 
 header {
     background-color: #141C1D;
+    text-align: center;
+    fill: #141C1D
+
+
 }
 
 #logo {
@@ -13,7 +17,6 @@ header {
 
 
 #wrapper {
-   /* display: flex;  */
    background-color: #39406c;
 }
 
@@ -22,8 +25,8 @@ footer {
 }
 
 #screen {
-    width: 320px;
-    height: 240px;
+    /* width: 320px;
+    height: 240px; */
     background-color: #9ddb0a;
 }
 
@@ -32,14 +35,13 @@ footer {
     font-size: ;
 }
 
-#screenLine {
-    background-color: #283c01;
+hr {
+    color: #283c01;
+    border-width: 2px;
 }
 
 #snakeboard {
-    position: absolute;
+    background-color: #9ddb0a;
     border: 3px solid #283c01;
-    /* top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
+    width: 100%;
 }
