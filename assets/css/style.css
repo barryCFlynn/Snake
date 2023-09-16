@@ -4,9 +4,6 @@
 header {
     background-color: #141C1D;
     text-align: center;
-    fill: #141C1D
-
-
 }
 
 #logo {
@@ -18,6 +15,11 @@ header {
 
 #wrapper {
    background-color: #39406c;
+   align-content: center;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
 }
 
 footer {
@@ -25,17 +27,25 @@ footer {
 }
 
 #screen {
-    /* width: 320px;
-    height: 240px; */
+    display: flex;
     background-color: #9ddb0a;
+    flex-direction: column;
+    align-items: center;
+    max-height: 65%;
+    padding: 5px;
+    /* max-width: 70%; */
+
 }
 
 #score {
     font-family: ;
     font-size: ;
+    width: 100%;
+    position: relative;
 }
 
 hr {
+    width: 100%;
     color: #283c01;
     border-width: 2px;
 }
@@ -43,5 +53,4 @@ hr {
 #snakeboard {
     background-color: #9ddb0a;
     border: 3px solid #283c01;
-    width: 100%;
 }

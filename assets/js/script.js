@@ -1,5 +1,4 @@
 
-//https://www.educative.io/blog/javascript-snake-game-tutorial
 const board_border = '#9ddb0a';
 const board_background ='#9ddb0a';
 const snake_col = '#283c01';
@@ -22,6 +21,8 @@ let food_y;
 let dx = 10;
 // Vertical velocity
 let dy = 0;
+let gameLoopTimeout;
+const maxHighScores = 10;
 
 
 // Get the canvas element
@@ -31,7 +32,8 @@ const snakeboard_ctx = snakeboard.getContext("2d");
 // Get Play again button
 const playAgain = document.querySelector("#playAgain")
 // Get High Score button
-const highScore = document.querySelector("highScore")
+const highScores = []
+const highScoresTable = document.querySelector("#highScores")
 
 // Event Listeners
 
@@ -44,21 +46,19 @@ main();
 
 gen_food();
 
-
-// main function called repeatedly to keep the game running
 function main() {
+  changing_direction = false;
+  clearTimeout(gameLoopTimeout);
 
-    if (has_game_ended()) return;
-
-    changing_direction = false;
-    setTimeout(function onTick() {
+  gameLoopTimeout = setTimeout(function onTick() {
     clear_board();
     drawFood();
     move_snake();
     drawSnake();
+    checkGameEnd(); // Check for game end and update high score here
     // Repeat
     main();
-  }, 100)
+  }, 100);
 }
 
 //function to reset game on playAgain button
@@ -113,8 +113,8 @@ function drawSnake() {
 }
 
 function drawFood() {
-  snakeboard_ctx.fillStyle = 'lightgreen';
-  snakeboard_ctx.strokestyle = 'darkgreen';
+  snakeboard_ctx.fillStyle = '#283c01';
+  snakeboard_ctx.strokestyle = '#283c01';
   snakeboard_ctx.fillRect(food_x, food_y, 10, 10);
   snakeboard_ctx.strokeRect(food_x, food_y, 10, 10);
 }
@@ -142,6 +142,23 @@ function has_game_ended() {
   const hitToptWall = snake[0].y < 0;
   const hitBottomWall = snake[0].y > snakeboard.height - 10;
   return hitLeftWall || hitRightWall || hitToptWall || hitBottomWall
+}
+
+function checkGameEnd() {
+  if (has_game_ended()) {
+    const playerName = prompt("Enter your name:"); // Prompt for the player's name
+
+    if (playerName !== null && playerName !== "") {
+      // If the player entered a name (not canceled or empty)
+      addHighScore(playerName, score);
+
+      // Display the updated high scores table
+      updateHighScoresTable();
+    }
+    
+    // Restart the game
+    resetGame();
+  }
 }
 
 function random_food(min, max) {
@@ -211,3 +228,40 @@ function move_snake() {
     snake.pop();
   }
 }
+
+//function to add high scores in descending order
+function addHighScore(name, score) {
+  highScores.push({ name, score });
+
+  // Sort high scores
+  highScores.sort((a, b) => b.score - a.score);
+
+  // Remove excess entries beyond the defined limit
+  if (highScores.length > maxHighScores) {
+    highScores.pop();
+  }
+
+  updateHighScoresTable();
+}
+
+  function updateHighScoresTable() {
+    // Sort high scores
+    highScores.sort((a, b) => b.score - a.score);
+  
+    // Clear the table
+    highScoresTable.innerHTML = "";
+  
+    // Display only the top 'maxHighScores' entries
+    const displayedHighScores = highScores.slice(0, maxHighScores);
+  
+    for (let i = 0; i < displayedHighScores.length; i++) {
+      const row = highScoresTable.insertRow();
+      const rankCell = row.insertCell(0);
+      const nameCell = row.insertCell(1);
+      const scoreCell = row.insertCell(2);
+  
+      rankCell.innerHTML = i + 1;
+      nameCell.innerHTML = displayedHighScores[i].name;
+      scoreCell.innerHTML = displayedHighScores[i].score;
+    }
+  }
