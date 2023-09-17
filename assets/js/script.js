@@ -23,6 +23,7 @@ let dx = 10;
 // Vertical velocity
 let dy = 0;
 let gameLoopTimeout;
+// max high score entry limit
 const maxHighScores = 2;
 // Initialize the game state
 let gameStarted = false;
@@ -33,9 +34,15 @@ const snakeboard = document.getElementById("snakeboard");
 // Return a two dimensional drawing context
 const snakeboard_ctx = snakeboard.getContext("2d");
 // Get Play again button
-const playAgain = document.querySelector("#playAgain")
+const play = document.querySelector("#play")
 // Get High Score button
-const highScores = []
+const highScores = [
+  { name: 'BAZ', score: '999' },
+  { name: '', score: '' },
+  { name: '', score: '' },
+  { name: '', score: '' },
+  { name: '', score: '' }
+];
 const highScoresTable = document.querySelector("#highScores")
 
 // Event Listeners
@@ -43,8 +50,8 @@ const highScoresTable = document.querySelector("#highScores")
 // to track change direction
 document.addEventListener("keydown", change_direction);
 // to reset game
-playAgain.addEventListener("click", startGame);
-// Start game
+play.addEventListener("click", startGame);
+// initialise game
 // main();
 initGame();
 
@@ -59,6 +66,7 @@ function startGame() {
 
     // Start the game loop
     main();
+    console.log("startGame has run")
   }
 }
 
@@ -69,6 +77,7 @@ function initGame() {
   //drawFood();
   drawSnake();
   //checkGameEnd();
+  console.log("initGame has run")
 }
 
 // game loop function
@@ -91,7 +100,7 @@ function main() {
   }, 100);
 }
 
-//function to reset game on playAgain button
+//function to reset game on play button
 function resetGame() {
   // Reset game variables, e.g., score, snake position
   score = 0;
@@ -107,9 +116,11 @@ function resetGame() {
 
   // Clear the game board
   clear_board();
-
+  // Clear Score
+  document.querySelector('#score').innerHTML = 000;
   // Initialize the game (same as in initGame)
-  initGame();
+  //initGame();
+  console.log("resetGame has run")
 }
 
 // draw a border around the canvas
@@ -176,11 +187,13 @@ function checkGameEnd() {
   
         // Display the updated high scores table
         updateHighScoresTable();
+        console.log("New player High Score!")
       }
     }
     // Restart the game
     //resetGame();
   }
+
 }
 
 function random_food(min, max) {
