@@ -15,14 +15,17 @@ let snake = [
 let score = 0;
 // True if changing direction
 let changing_direction = false;
-// Horizontal velocity
+// Declaring food coordinate
 let food_x;
 let food_y;
+// Horizontal velocity
 let dx = 10;
 // Vertical velocity
 let dy = 0;
 let gameLoopTimeout;
-const maxHighScores = 10;
+const maxHighScores = 2;
+// Initialize the game state
+let gameStarted = false;
 
 
 // Get the canvas element
@@ -40,59 +43,74 @@ const highScoresTable = document.querySelector("#highScores")
 // to track change direction
 document.addEventListener("keydown", change_direction);
 // to reset game
-playAgain.addEventListener("click", resetGame);
+playAgain.addEventListener("click", startGame);
 // Start game
-main();
+// main();
+initGame();
 
 gen_food();
 
+function startGame() {
+  if (!gameStarted) {
+    // Reset game state
+    resetGame();
+    initGame();
+    gameStarted = true; // Set the game as started
+
+    // Start the game loop
+    main();
+  }
+}
+
+function initGame() {
+  // Initialize game variables and setup game board
+  changing_direction = false;
+  updateHighScoresTable();
+  //drawFood();
+  drawSnake();
+  //checkGameEnd();
+}
+
+// game loop function
 function main() {
   changing_direction = false;
-  clearTimeout(gameLoopTimeout);
+  clearTimeout(gameLoopTimeout); // Clear existing timeout
 
   gameLoopTimeout = setTimeout(function onTick() {
     clear_board();
     drawFood();
     move_snake();
     drawSnake();
-    checkGameEnd(); // Check for game end and update high score here
-    // Repeat
-    main();
+    checkGameEnd();
+
+    if (!has_game_ended()) {
+      main(); // Continue the game loop if the game hasn't ended
+    } else {
+      gameStarted = false; // Reset gameStarted when the game ends
+    }
   }, 100);
 }
 
 //function to reset game on playAgain button
 function resetGame() {
-    // Clear the canvas and reset the game state here
-    
-    // Clear the canvas
-    clear_board();
-    
-    // Reset the snake to its initial position
-    snake = [
-      { x: 150, y: 60 },
-      { x: 140, y: 60 },
-      { x: 130, y: 60 },
-      { x: 120, y: 60 },
-      { x: 110, y: 60 }
-    ];
-  
-    // Reset score to zero
-    score = 0;
-  
-    // Display the score on the screen
-    document.getElementById('score').innerHTML = score;
-  
-    // Reset the snake's direction
-    dx = 10;
-    dy = 0;
-  
-    // Generate new food location
-    gen_food();
-  
-    // Start the game again
-    main();
-  }
+  // Reset game variables, e.g., score, snake position
+  score = 0;
+  snake = [
+    {x: 150, y: 60},
+    {x: 140, y: 60},
+    {x: 130, y: 60},
+    {x: 120, y: 60},
+    {x: 110, y: 60}
+  ];
+  dx = 10;
+  dy = 0;
+
+  // Clear the game board
+  clear_board();
+
+  // Initialize the game (same as in initGame)
+  initGame();
+}
 
 // draw a border around the canvas
 function clear_board() {
@@ -114,9 +132,9 @@ function drawSnake() {
 
 function drawFood() {
   snakeboard_ctx.fillStyle = '#283c01';
-  snakeboard_ctx.strokestyle = '#283c01';
+  //snakeboard_ctx.strokestyle = '#283c01';
   snakeboard_ctx.fillRect(food_x, food_y, 10, 10);
-  snakeboard_ctx.strokeRect(food_x, food_y, 10, 10);
+  //snakeboard_ctx.strokeRect(food_x, food_y, 10, 10);
 }
 
 // Draw one snake part
@@ -145,19 +163,23 @@ function has_game_ended() {
 }
 
 function checkGameEnd() {
-  if (has_game_ended()) {
-    const playerName = prompt("Enter your name:"); // Prompt for the player's name
+  if (has_game_ended() && score > 0) { // Check if the game has ended and score is greater than 0
+    let lowestHighScore = highScores[highScores.length - 1];
 
-    if (playerName !== null && playerName !== "") {
-      // If the player entered a name (not canceled or empty)
-      addHighScore(playerName, score);
+    if (!lowestHighScore || score > lowestHighScore.score) {
+      const playerName = prompt("Enter your name:"); // Prompt for the player's name
 
-      // Display the updated high scores table
-      updateHighScoresTable();
+
+      if (playerName !== null && playerName !== "") {
+        // If the player entered a name (not canceled or empty)
+        addHighScore(playerName, score);
+  
+        // Display the updated high scores table
+        updateHighScoresTable();
+      }
     }
-    
     // Restart the game
-    resetGame();
+    //resetGame();
   }
 }
 
