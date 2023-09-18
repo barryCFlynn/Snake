@@ -11,6 +11,7 @@ let snake = [
   { x: 110, y: 60 },
 ];
 
+//GLOBAL VARIABLES
 let score = 0;
 // True if changing direction
 let changing_direction = false;
@@ -23,10 +24,9 @@ let dx = 10;
 let dy = 0;
 let gameLoopTimeout;
 // max high score entry limit
-const maxHighScores = 10;
+const maxHighScores = 5;
 // Initialize the game state
 let gameStarted = false;
-
 // Get the canvas element
 const snakeboard = document.getElementById("snakeboard");
 // Return a two dimensional drawing context
@@ -35,22 +35,29 @@ const snakeboard_ctx = snakeboard.getContext("2d");
 const play = document.querySelector("#play");
 // Get High Score button
 const highScores = [
-  { name: "BAZ", score: "999" },
+  { name: "BAZ", score: "025" },
   { name: "", score: "" },
   { name: "", score: "" },
   { name: "", score: "" },
   { name: "", score: "" },
 ];
 const highScoresTable = document.querySelector("#highScores");
+// for managing the modal High Scores
+const gameOverModal = document.getElementById("gameOverModal");
+const closeModal = document.querySelector("#closeModal");
 
-// Event Listeners
-
+// EVENT LISTENERS
 // to track change direction
 document.addEventListener("keydown", change_direction);
 // to reset game
 play.addEventListener("click", startGame);
+// for modal
+closeModal.addEventListener("click", () => {
+  gameOverModal.close();
+});
+
+//FUNCTIONS
 // initialise game
-// main();
 initGame();
 
 gen_food();
@@ -176,7 +183,8 @@ function checkGameEnd() {
     let lowestHighScore = highScores[highScores.length - 1];
 
     if (!lowestHighScore || score > lowestHighScore.score) {
-      const playerName = prompt("Enter your name:"); // Prompt for the player's name
+      gameOverModal.showModal();
+      const playerName = document.querySelector("#playerName").innerHTML; // Prompt for the player's name
 
       if (playerName !== null && playerName !== "") {
         // If the player entered a name (not canceled or empty)

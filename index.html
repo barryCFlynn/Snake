@@ -17,6 +17,7 @@
     <header>
       <h1 id="logo">SNAKE</h1>
     </header>
+
     <div id="wrapper">
       <div id="screen">
         <div id="score">000</div>
@@ -25,9 +26,18 @@
 
         <canvas id="snakeboard" width="300" height="180"></canvas>
       </div>
+
       <div id="buttons">
         <button id="play">Play</button>
       </div>
+
+      <div id="gameButtons">
+        <button id="btnLeft"><</button>
+        <button id="btnUp">^</button>
+        <button id="btnRight">></button>
+        <button id="btnDown">\/</button>
+      </div>
+
       <div>
         <h2>High Scores</h2>
         <table id="highScores">
@@ -39,6 +49,16 @@
         </table>
       </div>
     </div>
+
+    <!--Modal Dialog for High score and name input-->
+    <dialog id="gameOverModal">
+      <h1>You have a High Score</h1>
+      <h2>Your rank is RANK</h2>
+      <h3>please input your name</h3>
+      <input type="text" id="playerName" placeholder="Your Name">
+      <button id="closeModal">Save</button>
+    </dialog>
+
     <footer>
       <div id="socials">
         <a
