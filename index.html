@@ -52,11 +52,15 @@
 
     <!--Modal Dialog for High score and name input-->
     <dialog id="gameOverModal">
-      <h1>You have a High Score</h1>
-      <h2>Your rank is RANK</h2>
-      <h3>please input your name</h3>
-      <input type="text" id="playerName" placeholder="Your Name">
-      <button id="closeModal">Save</button>
+      <form method="dialog" id="gameOverForm">
+        <h1>You have a High Score</h1>
+        <h2>Your rank is RANK</h2>
+        <h3>please input your name</h3>
+        <label for="playerName">
+          <input type="text" name="player-name" id="playerName" placeholder="Your Name">
+        </label>
+        <button class="button" type="submit" id="closeModal">Save</button>
+      </form>
     </dialog>
 
     <footer>

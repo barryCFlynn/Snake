@@ -23,8 +23,9 @@ let dx = 10;
 // Vertical velocity
 let dy = 0;
 let gameLoopTimeout;
+let playerName = "";
 // max high score entry limit
-const maxHighScores = 5;
+const maxHighScores = 2;
 // Initialize the game state
 let gameStarted = false;
 // Get the canvas element
@@ -37,14 +38,19 @@ const play = document.querySelector("#play");
 const highScores = [
   { name: "BAZ", score: "025" },
   { name: "", score: "" },
-  { name: "", score: "" },
-  { name: "", score: "" },
-  { name: "", score: "" },
+  // { name: "", score: "" },
+  // { name: "", score: "" },
+  // { name: "", score: "" },
 ];
 const highScoresTable = document.querySelector("#highScores");
 // for managing the modal High Scores
 const gameOverModal = document.getElementById("gameOverModal");
 const closeModal = document.querySelector("#closeModal");
+const playerNameInput = document.querySelector("#playerName");
+
+
+
+
 
 // EVENT LISTENERS
 // to track change direction
@@ -54,6 +60,18 @@ play.addEventListener("click", startGame);
 // for modal
 closeModal.addEventListener("click", () => {
   gameOverModal.close();
+  playerName = playerNameInput.value.trim(); // Trim any leading/trailing whitespace
+
+  if (playerName !== "") {
+    // If the player entered a name (not empty)
+    addHighScore(playerName, score);
+
+    // Display the updated high scores table
+    updateHighScoresTable();
+    console.log("New player High Score!");
+  }
+  playerNameInput.value = "";
+
 });
 
 //FUNCTIONS
@@ -177,28 +195,47 @@ function has_game_ended() {
   return hitLeftWall || hitRightWall || hitToptWall || hitBottomWall;
 }
 
+// function checkGameEnd() {
+//   if (has_game_ended() && score > 0) {
+//     // Check if the game has ended and score is greater than 0
+//     let lowestHighScore = highScores[highScores.length - 1];
+
+//     if (!lowestHighScore || score > lowestHighScore.score) {
+//       gameOverModal.showModal(); // show modal
+
+//       const playerNameInput  = document.querySelector("#playerName");
+
+//       const playerName = playerNameInput.value;
+      
+
+//       if (playerName !== null && playerName !== "") {
+//         // If the player entered a name (not canceled or empty)
+//         addHighScore(playerName, score);
+
+//         // Display the updated high scores table
+//         updateHighScoresTable();
+//         console.log("New player High Score!");
+//       }
+//     }
+//   }
+// }
+
 function checkGameEnd() {
   if (has_game_ended() && score > 0) {
     // Check if the game has ended and score is greater than 0
+    
+    
+
     let lowestHighScore = highScores[highScores.length - 1];
 
     if (!lowestHighScore || score > lowestHighScore.score) {
-      gameOverModal.showModal();
-      const playerName = document.querySelector("#playerName").innerHTML; // Prompt for the player's name
+      gameOverModal.showModal(); // Show modal
 
-      if (playerName !== null && playerName !== "") {
-        // If the player entered a name (not canceled or empty)
-        addHighScore(playerName, score);
-
-        // Display the updated high scores table
-        updateHighScoresTable();
-        console.log("New player High Score!");
-      }
+      
     }
-    // Restart the game
-    //resetGame();
   }
 }
+
 
 function random_food(min, max) {
   return Math.round((Math.random() * (max - min) + min) / 10) * 10;
