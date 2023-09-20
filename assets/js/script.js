@@ -25,7 +25,7 @@ let dy = 0;
 let gameLoopTimeout;
 let playerName = "";
 // max high score entry limit
-const maxHighScores = 2;
+const maxHighScores = 5;
 // Initialize the game state
 let gameStarted = false;
 // Get the canvas element
@@ -38,9 +38,9 @@ const play = document.querySelector("#play");
 const highScores = [
   { name: "BAZ", score: "025" },
   { name: "", score: "" },
-  // { name: "", score: "" },
-  // { name: "", score: "" },
-  // { name: "", score: "" },
+  { name: "", score: "" },
+  { name: "", score: "" },
+  { name: "", score: "" },
 ];
 const highScoresTable = document.querySelector("#highScores");
 // for managing the modal High Scores
@@ -58,21 +58,25 @@ document.addEventListener("keydown", change_direction);
 // to reset game
 play.addEventListener("click", startGame);
 // for modal
+
+
 closeModal.addEventListener("click", () => {
   gameOverModal.close();
   playerName = playerNameInput.value.trim(); // Trim any leading/trailing whitespace
 
   if (playerName !== "") {
     // If the player entered a name (not empty)
-    addHighScore(playerName, score);
+    //addHighScore(playerName, score);
 
     // Display the updated high scores table
-    updateHighScoresTable();
+    updateHighScoresTable(playerName, score);
     console.log("New player High Score!");
   }
+  
   playerNameInput.value = "";
-
 });
+
+
 
 //FUNCTIONS
 // initialise game
@@ -195,30 +199,6 @@ function has_game_ended() {
   return hitLeftWall || hitRightWall || hitToptWall || hitBottomWall;
 }
 
-// function checkGameEnd() {
-//   if (has_game_ended() && score > 0) {
-//     // Check if the game has ended and score is greater than 0
-//     let lowestHighScore = highScores[highScores.length - 1];
-
-//     if (!lowestHighScore || score > lowestHighScore.score) {
-//       gameOverModal.showModal(); // show modal
-
-//       const playerNameInput  = document.querySelector("#playerName");
-
-//       const playerName = playerNameInput.value;
-      
-
-//       if (playerName !== null && playerName !== "") {
-//         // If the player entered a name (not canceled or empty)
-//         addHighScore(playerName, score);
-
-//         // Display the updated high scores table
-//         updateHighScoresTable();
-//         console.log("New player High Score!");
-//       }
-//     }
-//   }
-// }
 
 function checkGameEnd() {
   if (has_game_ended() && score > 0) {
@@ -294,9 +274,10 @@ function move_snake() {
   const has_eaten_food = snake[0].x === food_x && snake[0].y === food_y;
   if (has_eaten_food) {
     // Increase score
-    increaseScore();
+    score += 1;
+    //increaseScore();
     // Display score on screen
-    // document.querySelector('#score').textContent = score.toString().padStart(3, '0');
+    document.querySelector('#score').textContent = score.toString().padStart(3, '0');
     // Generate new food location
     gen_food();
   } else {
@@ -305,36 +286,15 @@ function move_snake() {
   }
 }
 
-//Update the score element with to format 000
-function updateScore() {
-  const scoreElement = document.querySelector("#score");
-  scoreElement.textContent = score.toString().padStart(3, "0");
-  console.log(`update score is ${score}`);
-}
-
-function increaseScore() {
-  score += 1;
-  updateScore();
-}
-
-//function to add high scores in descending order
-function addHighScore(name, score) {
+function updateHighScoresTable(name, score) {
   highScores.push({ name, score });
-
   // Sort high scores
   highScores.sort((a, b) => b.score - a.score);
 
   // Remove excess entries beyond the defined limit
   if (highScores.length > maxHighScores) {
-    highScores.pop();
+  highScores.pop();
   }
-
-  updateHighScoresTable();
-}
-
-function updateHighScoresTable() {
-  // Sort high scores
-  highScores.sort((a, b) => b.score - a.score);
 
   // Clear the table
   highScoresTable.innerHTML = "";
@@ -350,6 +310,8 @@ function updateHighScoresTable() {
 
     rankCell.innerHTML = i + 1;
     nameCell.innerHTML = displayedHighScores[i].name;
-    scoreCell.innerHTML = displayedHighScores[i].score;
+    scoreCell.innerHTML = displayedHighScores[i].score.toString().padStart(3,'0');
   }
 }
+
+
