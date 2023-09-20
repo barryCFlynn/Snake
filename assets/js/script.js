@@ -60,21 +60,8 @@ play.addEventListener("click", startGame);
 // for modal
 
 
-closeModal.addEventListener("click", () => {
-  gameOverModal.close();
-  playerName = playerNameInput.value.trim(); // Trim any leading/trailing whitespace
+closeModal.addEventListener("click", gameOver)
 
-  if (playerName !== "") {
-    // If the player entered a name (not empty)
-    //addHighScore(playerName, score);
-
-    // Display the updated high scores table
-    updateHighScoresTable(playerName, score);
-    console.log("New player High Score!");
-  }
-  
-  playerNameInput.value = "";
-});
 
 
 
@@ -142,7 +129,7 @@ function resetGame() {
   dy = 0;
 
   // Clear the game board
-  clear_board();
+  //clear_board();
   // Clear Score
   document.querySelector("#score").textContent = "000";
   // Initialize the game (same as in initGame)
@@ -150,7 +137,7 @@ function resetGame() {
   console.log("resetGame has run");
 }
 
-// draw a border around the canvas
+// constantly draw the board to remove old snake 
 function clear_board() {
   //  Select the colour to fill the drawing
   snakeboard_ctx.fillStyle = board_background;
@@ -233,17 +220,44 @@ function gen_food() {
   });
 }
 
+const LEFT_KEY = 37;
+const RIGHT_KEY = 39;
+const UP_KEY = 38;
+const DOWN_KEY = 40;
+
+const btnLeft = document.getElementById("btnLeft");
+const btnRight = document.getElementById("btnRight");
+const btnUp = document.getElementById("btnUp");
+const btnDown = document.getElementById("btnDown");
+
+btnLeft.addEventListener("click", () => change_direction({ keyCode: LEFT_KEY }));
+btnRight.addEventListener("click", () => change_direction({ keyCode: RIGHT_KEY }));
+btnUp.addEventListener("click", () => change_direction({ keyCode: UP_KEY }));
+btnDown.addEventListener("click", () => change_direction({ keyCode: DOWN_KEY }));
+
 function change_direction(event) {
-  const LEFT_KEY = 37;
-  const RIGHT_KEY = 39;
-  const UP_KEY = 38;
-  const DOWN_KEY = 40;
+  const keyPressed = event.keyCode;
+// Add logic to handle direction changes based on the key code
+if (keyPressed === LEFT_KEY) {
+  // Handle left direction
+  // Set dx and dy accordingly
+} else if (keyPressed === RIGHT_KEY) {
+  // Handle right direction
+  // Set dx and dy accordingly
+} else if (keyPressed === UP_KEY) {
+  // Handle up direction
+  // Set dx and dy accordingly
+} else if (keyPressed === DOWN_KEY) {
+  // Handle down direction
+  // Set dx and dy accordingly
+}
+
 
   // Prevent the snake from reversing
 
   if (changing_direction) return;
   changing_direction = true;
-  const keyPressed = event.keyCode;
+  //const keyPressed = event.keyCode;
   const goingUp = dy === -10;
   const goingDown = dy === 10;
   const goingRight = dx === 10;
@@ -285,6 +299,24 @@ function move_snake() {
     snake.pop();
   }
 }
+
+/**
+ * controls the modal closing and passing player and and score to
+ */
+function gameOver () {
+  gameOverModal.close();
+  playerName = playerNameInput.value.trim().toUpperCase(); // Trim any leading/trailing whitespace and make Upper case
+
+  if (playerName !== "") { // If the player entered a name (not empty)
+    
+    // Display the updated high scores table
+    updateHighScoresTable(playerName, score);
+    console.log("New player High Score!");
+  }
+  
+  playerNameInput.value = "";
+};
+
 
 function updateHighScoresTable(name, score) {
   highScores.push({ name, score });
