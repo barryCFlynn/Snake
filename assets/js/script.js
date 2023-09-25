@@ -29,7 +29,7 @@ const maxHighScores = 5;
 // Initialize the game state
 let gameStarted = false;
 // Get the canvas element
-const snakeboard = document.getElementById("snakeboard");
+const snakeboard = document.querySelector("#snakeboard");
 // Return a two dimensional drawing context
 const snakeboard_ctx = snakeboard.getContext("2d");
 // Get Play again button
@@ -37,29 +37,47 @@ const play = document.querySelector("#play");
 // Get High Score button
 const highScores = [
   { name: "BAZ", score: "025" },
-  { name: "", score: "" },
-  { name: "", score: "" },
-  { name: "", score: "" },
-  { name: "", score: "" },
+  { name: "LOG", score: "013" },
+  { name: "EVA", score: "008" },
+  { name: "ANNE", score: "005" },
+  { name: "FRED", score: "001" },
 ];
 const highScoresTable = document.querySelector("#highScores");
+
 // for managing the modal High Scores
-const gameOverModal = document.getElementById("gameOverModal");
+const gameOverModal = document.querySelector("#gameOverModal");
 const closeModal = document.querySelector("#closeModal");
 const playerNameInput = document.querySelector("#playerName");
 
 
+// for change direction arrow keys
+const LEFT_KEY = 37;
+const RIGHT_KEY = 39;
+const UP_KEY = 38;
+const DOWN_KEY = 40;
 
+// for change direction arrow buttons
+const btnLeft = document.querySelector("#btnLeft");
+const btnRight = document.querySelector("#btnRight");
+const btnUp = document.querySelector("#btnUp");
+const btnDown = document.querySelector("#btnDown");
 
 
 // EVENT LISTENERS
+
 // to track change direction
 document.addEventListener("keydown", change_direction);
+
 // to reset game
 play.addEventListener("click", startGame);
-// for modal
 
+// for change direction button event listeners
+btnLeft.addEventListener("click", () => change_direction({ keyCode: LEFT_KEY }));
+btnRight.addEventListener("click", () => change_direction({ keyCode: RIGHT_KEY }));
+btnUp.addEventListener("click", () => change_direction({ keyCode: UP_KEY }));
+btnDown.addEventListener("click", () => change_direction({ keyCode: DOWN_KEY }));
 
+//close modal even listener
 closeModal.addEventListener("click", gameOver)
 
 
@@ -203,7 +221,6 @@ function checkGameEnd() {
   }
 }
 
-
 function random_food(min, max) {
   return Math.round((Math.random() * (max - min) + min) / 10) * 10;
 }
@@ -219,21 +236,6 @@ function gen_food() {
     if (has_eaten) gen_food();
   });
 }
-
-const LEFT_KEY = 37;
-const RIGHT_KEY = 39;
-const UP_KEY = 38;
-const DOWN_KEY = 40;
-
-const btnLeft = document.getElementById("btnLeft");
-const btnRight = document.getElementById("btnRight");
-const btnUp = document.getElementById("btnUp");
-const btnDown = document.getElementById("btnDown");
-
-btnLeft.addEventListener("click", () => change_direction({ keyCode: LEFT_KEY }));
-btnRight.addEventListener("click", () => change_direction({ keyCode: RIGHT_KEY }));
-btnUp.addEventListener("click", () => change_direction({ keyCode: UP_KEY }));
-btnDown.addEventListener("click", () => change_direction({ keyCode: DOWN_KEY }));
 
 function change_direction(event) {
   const keyPressed = event.keyCode;
