@@ -32,7 +32,7 @@ let gameStarted = false;
 const snakeboard = document.querySelector("#snakeboard");
 // Return a two dimensional drawing context
 const snakeboard_ctx = snakeboard.getContext("2d");
-// Get Play again button
+// Get Play button
 const play = document.querySelector("#play");
 // Get High Score button
 const highScores = [

@@ -26,17 +26,24 @@
 
         <canvas id="snakeboard" width="300" height="180"></canvas>
       </div>
-
-      <div id="buttons">
-        <button id="play">Play</button>
+      <div>
+        <button class="btn" id="play">Play</button>
       </div>
 
-      <div id="gameButtons">
-        <button id="btnLeft"><</button>
-        <button id="btnUp">^</button>
-        <button id="btnRight">></button>
-        <button id="btnDown">\/</button>
-      </div>
+      <div id="flexContainer">
+        <div class="flexItem">
+          <button class="btn" id="btnUp"><i class="fa-solid fa-circle-arrow-up"></i></button>
+        </div>
+        <div class="flexItem">
+          <button class="btn" id="btnLeft"><i class="fa-solid fa-circle-arrow-left"></i></button>
+<span></span>
+          <button class="btn" id="btnRight"><i class="fa-solid fa-circle-arrow-right"></i></button>
+        </div>
+        <div class="flexItem">
+          <button class="btn" id="btnDown"><i class="fa-solid fa-circle-arrow-down"></i></button>
+        </div>
+    </div>
+
 
       <div>
         <h2>High Scores</h2>

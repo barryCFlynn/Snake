@@ -55,6 +55,30 @@ hr {
     border: 3px solid #283c01;
 }
 
+/* CSS for buttonsButtons */
+
+#flexContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+.flexItem {
+    text-align: center;
+}
+
+.flexItem span{
+    margin-right: 1rem;
+}
+
+.btn {
+    border-radius: 50%;
+    width: 3rem;
+    height: 2rem;
+}
+
+
+
 /* CSS to style the modal for high scores */
 
 
