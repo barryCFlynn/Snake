@@ -1,17 +1,25 @@
-
-
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    border-style: none;
+    box-sizing: border-box;
+    /* font-family: "Saira Condensed", sans-serif; */
+  }
 
 header {
     background-color: #141C1D;
     text-align: center;
+    padding: 2.5rem;
+    font-size: 2.5rem;
 }
+
 
 #logo {
     font-family: ;
-    font-size: ;
+    font-size: 2.5rem;
     color: #9ddb0a;
 }
-
 
 #wrapper {
    background-color: #39406c;
@@ -19,11 +27,17 @@ header {
    display: flex;
    flex-direction: column;
    align-items: center;
-
 }
 
 footer {
     background-color: #b4bade;
+    text-align: center;
+    padding: 3rem;
+}
+
+#socials a {
+    padding: 2rem;
+    font-size: 2.5rem;
 }
 
 #screen {
@@ -34,7 +48,8 @@ footer {
     max-height: 65%;
     padding: 5px;
     /* max-width: 70%; */
-
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 #score {
@@ -44,7 +59,7 @@ footer {
     position: relative;
 }
 
-hr {
+#screenLine {
     width: 100%;
     color: #283c01;
     border-width: 2px;
@@ -55,7 +70,7 @@ hr {
     border: 3px solid #283c01;
 }
 
-/* CSS for buttonsButtons */
+/* CSS for Buttons */
 
 #flexContainer {
     display: flex;
@@ -77,8 +92,16 @@ hr {
     height: 2rem;
 }
 
+.table {
+    margin-top: 2rem;
+}
 
-
-/* CSS to style the modal for high scores */
-
+/* CSS to style the modal */
+ 
+#gameOverModal {
+    text-align: center;
+    margin: auto;
+    padding: 1rem;
+    background-color: #b4bade;
+}
 
