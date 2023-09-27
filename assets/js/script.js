@@ -82,18 +82,17 @@ closeModal.addEventListener("click", gameOver)
 
 document.addEventListener("keydown", disableArrowScrolling) 
 
-
-
-
 //FUNCTIONS
-// initialise game
-initGame();
+
+initGame(); // initialise game
 
 gen_food();
 
+/**
+ *  Disable default arrow key to scroll webpage
+ */
 function disableArrowScrolling(e) {
-  // Check if the pressed key is an arrow key (left, right, up, or down)
-  if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(e.key)) {
+  if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(e.key)) { // Check if the pressed key is an arrow key (left, right, up, or down)
     e.preventDefault(); // Prevent the default scrolling behavior
   }
 };
@@ -102,7 +101,7 @@ function startGame() {
   if (!gameStarted) {
     // Reset game state
     resetGame();
-    initGame();
+    //initGame();
     gameStarted = true; // Set the game as started
 
     // Start the game loop
