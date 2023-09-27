@@ -80,6 +80,8 @@ btnDown.addEventListener("click", () => change_direction({ keyCode: DOWN_KEY }))
 //close modal even listener
 closeModal.addEventListener("click", gameOver)
 
+document.addEventListener("keydown", disableArrowScrolling) 
+
 
 
 
@@ -88,6 +90,13 @@ closeModal.addEventListener("click", gameOver)
 initGame();
 
 gen_food();
+
+function disableArrowScrolling(e) {
+  // Check if the pressed key is an arrow key (left, right, up, or down)
+  if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(e.key)) {
+    e.preventDefault(); // Prevent the default scrolling behavior
+  }
+};
 
 function startGame() {
   if (!gameStarted) {
@@ -240,10 +249,6 @@ function gen_food() {
 function change_direction(event) {
   const keyPressed = event.keyCode;
 
-// Prevent default behavior for arrow keys
-if ([LEFT_KEY, RIGHT_KEY, UP_KEY, DOWN_KEY].includes(keyPressed)) {
-  event.preventDefault();
-}
 // Add logic to handle direction changes based on the key code
 if (keyPressed === LEFT_KEY) {
   // Handle left direction
