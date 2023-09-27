@@ -70,9 +70,7 @@ footer {
 /* CSS for Buttons */
 
 #flexContainer {
-    display: flex;
-    flex-direction: column;
-    margin-top: 1rem;
+    display: none;
 }
 
 .flexItem {
@@ -96,9 +94,19 @@ footer {
 /* CSS to style the modal */
  
 #gameOverModal {
+    display: show;
     text-align: center;
     margin: auto;
     padding: 1rem;
     background-color: #b4bade;
 }
 
+/* Media Queries */
+
+@media (pointer:coarse) {
+    #flexContainer {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+}
