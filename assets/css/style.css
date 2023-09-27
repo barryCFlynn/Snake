@@ -4,7 +4,7 @@
     text-decoration: none;
     border-style: none;
     box-sizing: border-box;
-    /* font-family: "Saira Condensed", sans-serif; */
+    font-family: 'VT323', monospace;
   }
 
 header {
@@ -16,8 +16,6 @@ header {
 
 
 #logo {
-    font-family: ;
-    font-size: 2.5rem;
     color: #9ddb0a;
 }
 
@@ -38,6 +36,7 @@ footer {
 #socials a {
     padding: 2rem;
     font-size: 2.5rem;
+    color: #283c01;
 }
 
 #screen {
@@ -47,7 +46,6 @@ footer {
     align-items: center;
     max-height: 65%;
     padding: 5px;
-    /* max-width: 70%; */
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
@@ -68,6 +66,7 @@ footer {
 #snakeboard {
     background-color: #9ddb0a;
     border: 3px solid #283c01;
+    width: 50vw;
 }
 
 /* CSS for Buttons */

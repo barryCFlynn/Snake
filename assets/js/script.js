@@ -239,6 +239,11 @@ function gen_food() {
 
 function change_direction(event) {
   const keyPressed = event.keyCode;
+
+// Prevent default behavior for arrow keys
+if ([LEFT_KEY, RIGHT_KEY, UP_KEY, DOWN_KEY].includes(keyPressed)) {
+  event.preventDefault();
+}
 // Add logic to handle direction changes based on the key code
 if (keyPressed === LEFT_KEY) {
   // Handle left direction
