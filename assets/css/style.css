@@ -103,6 +103,7 @@ footer {
 
 /* Media Queries */
 
+/* Arrow buttons will only show if the browser does not detect a mouse pointer */
 @media (pointer:coarse) {
     #flexContainer {
         display: flex;

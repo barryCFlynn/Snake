@@ -1,7 +1,6 @@
-const board_border = "#9ddb0a";
-const board_background = "#9ddb0a";
-const snake_col = "#283c01";
-// const snake_border = 'darkblue';
+const boardBorder = "#9ddb0a";
+const boardBackground = "#9ddb0a";
+const snakeCol = "#283c01";
 
 let snake = [
   { x: 150, y: 60 },
@@ -14,10 +13,10 @@ let snake = [
 //GLOBAL VARIABLES
 let score = 0;
 // True if changing direction
-let changing_direction = false;
+let changingDirection = false;
 // Declaring food coordinate
-let food_x;
-let food_y;
+let foodX;
+let foodY;
 // Horizontal velocity
 let dx = 10;
 // Vertical velocity
@@ -31,7 +30,7 @@ let gameStarted = false;
 // Get the canvas element
 const snakeboard = document.querySelector("#snakeboard");
 // Return a two dimensional drawing context
-const snakeboard_ctx = snakeboard.getContext("2d");
+const snakeboardCtx = snakeboard.getContext("2d");
 // Get Play button
 const play = document.querySelector("#play");
 // Get High Score button
@@ -49,12 +48,11 @@ const gameOverModal = document.querySelector("#gameOverModal");
 const closeModal = document.querySelector("#closeModal");
 const playerNameInput = document.querySelector("#playerName");
 
-
 // for change direction arrow keys
-const LEFT_KEY = 37;
-const RIGHT_KEY = 39;
-const UP_KEY = 38;
-const DOWN_KEY = 40;
+const leftKey = 37;
+const rightKey = 39;
+const upKey = 38;
+const downKey = 40;
 
 // for change direction arrow buttons
 const btnLeft = document.querySelector("#btnLeft");
@@ -62,82 +60,87 @@ const btnRight = document.querySelector("#btnRight");
 const btnUp = document.querySelector("#btnUp");
 const btnDown = document.querySelector("#btnDown");
 
-
 // EVENT LISTENERS
 
 // to track change direction
-document.addEventListener("keydown", change_direction);
+document.addEventListener("keydown", changeDirection);
 
 // to reset game
 play.addEventListener("click", startGame);
 
 // for change direction button event listeners
-btnLeft.addEventListener("click", () => change_direction({ keyCode: LEFT_KEY }));
-btnRight.addEventListener("click", () => change_direction({ keyCode: RIGHT_KEY }));
-btnUp.addEventListener("click", () => change_direction({ keyCode: UP_KEY }));
-btnDown.addEventListener("click", () => change_direction({ keyCode: DOWN_KEY }));
+btnLeft.addEventListener("click", () => changeDirection({ keyCode: leftKey }));
+btnRight.addEventListener("click", () =>
+  changeDirection({ keyCode: rightKey })
+);
+btnUp.addEventListener("click", () => changeDirection({ keyCode: upKey }));
+btnDown.addEventListener("click", () => changeDirection({ keyCode: downKey }));
 
 //close modal even listener
-closeModal.addEventListener("click", gameOver)
+closeModal.addEventListener("click", gameOver);
 
-document.addEventListener("keydown", disableArrowScrolling) 
+document.addEventListener("keydown", disableArrowScrolling);
 
 //FUNCTIONS
 
-initGame(); // initialise game
-
-gen_food();
+// initialise game state
+initGame();
 
 /**
  *  Disable default arrow key to scroll webpage
  */
 function disableArrowScrolling(e) {
-  if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(e.key)) { // Check if the pressed key is an arrow key (left, right, up, or down)
+  if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(e.key)) {
+    // Check if the pressed key is an arrow key (left, right, up, or down)
     e.preventDefault(); // Prevent the default scrolling behavior
   }
-};
+}
 
+/**
+ * Initial game initalisation on page load
+ */
+function initGame() {
+  changingDirection = false;
+  updateHighScoresTable();
+  drawSnake();
+  genFood();
+  console.log("initGame has run");
+}
+
+/**
+ * Listens to Play button to start game
+ */
 function startGame() {
   if (!gameStarted) {
     // Reset game state
     resetGame();
-    //initGame();
     gameStarted = true; // Set the game as started
-
     // Start the game loop
     main();
     console.log("startGame has run");
   }
 }
 
-function initGame() {
-  // Initialize game variables and setup game board
-  changing_direction = false;
-  updateHighScoresTable();
-  //drawFood();
-  drawSnake();
-  //checkGameEnd();
-  console.log("initGame has run");
-}
-
-// game loop function
+/**
+ * Main game loop function
+ */
 function main() {
-  changing_direction = false;
+  changingDirection = false;
   clearTimeout(gameLoopTimeout); // Clear existing timeout
 
   gameLoopTimeout = setTimeout(function onTick() {
-    clear_board();
+    clearBoard();
     drawFood();
-    move_snake();
+    moveSnake();
     drawSnake();
-    checkGameEnd();
+    gameEnd();
 
-    if (!has_game_ended()) {
+    if (!hasGameEnded()) {
       main(); // Continue the game loop if the game hasn't ended
     } else {
       gameStarted = false; // Reset gameStarted when the game ends
     }
-  }, 100);
+  }, 100); // game loop 100ms or 10 times per second
 }
 
 //function to reset game on play button
@@ -154,54 +157,52 @@ function resetGame() {
   dx = 10;
   dy = 0;
 
-  // Clear the game board
-  //clear_board();
-  // Clear Score
   document.querySelector("#score").textContent = "000";
-  // Initialize the game (same as in initGame)
-  //initGame();
   console.log("resetGame has run");
 }
 
-// constantly draw the board to remove old snake 
-function clear_board() {
+// constantly draw the board to remove old snake
+function clearBoard() {
   //  Select the colour to fill the drawing
-  snakeboard_ctx.fillStyle = board_background;
+  snakeboardCtx.fillStyle = boardBackground;
   //  Select the colour for the border of the canvas
-  snakeboard_ctx.strokestyle = board_border;
+  snakeboardCtx.strokestyle = boardBorder;
   // Draw a "filled" rectangle to cover the entire canvas
-  snakeboard_ctx.fillRect(0, 0, snakeboard.width, snakeboard.height);
+  snakeboardCtx.fillRect(0, 0, snakeboard.width, snakeboard.height);
   // Draw a "border" around the entire canvas
-  snakeboard_ctx.strokeRect(0, 0, snakeboard.width, snakeboard.height);
+  snakeboardCtx.strokeRect(0, 0, snakeboard.width, snakeboard.height);
 }
 
-// Draw the snake on the canvas
+/**
+ * Draw the snake on the canvas
+ */
 function drawSnake() {
   // Draw each part
   snake.forEach(drawSnakePart);
 }
 
+/**
+ * Draw food on canvas
+ */
 function drawFood() {
-  snakeboard_ctx.fillStyle = "#283c01";
-  //snakeboard_ctx.strokestyle = '#283c01';
-  snakeboard_ctx.fillRect(food_x, food_y, 10, 10);
-  //snakeboard_ctx.strokeRect(food_x, food_y, 10, 10);
+  snakeboardCtx.fillStyle = "#283c01";
+  snakeboardCtx.fillRect(foodX, foodY, 10, 10);
 }
 
-// Draw one snake part
+/**
+ * Draw one snake part
+ */
 function drawSnakePart(snakePart) {
   // Set the colour of the snake part
-  snakeboard_ctx.fillStyle = snake_col;
-  // Set the border colour of the snake part
-  //   snakeboard_ctx.strokestyle = snake_border;
+  snakeboardCtx.fillStyle = snakeCol;
   // Draw a "filled" rectangle to represent the snake part at the coordinates
-  // the part is located
-  snakeboard_ctx.fillRect(snakePart.x, snakePart.y, 10, 10);
-  // Draw a border around the snake part
-  //   snakeboard_ctx.strokeRect(snakePart.x, snakePart.y, 10, 10);
+  snakeboardCtx.fillRect(snakePart.x, snakePart.y, 10, 10);
 }
 
-function has_game_ended() {
+/**
+ * Checks if snake has hit itself or any wall
+ */
+function hasGameEnded() {
   for (let i = 4; i < snake.length; i++) {
     if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) return true;
   }
@@ -212,99 +213,103 @@ function has_game_ended() {
   return hitLeftWall || hitRightWall || hitToptWall || hitBottomWall;
 }
 
-
-function checkGameEnd() {
-  if (has_game_ended() && score > 0) {
+/**
+ * Handles Game end to check if score is high enough to trigger Modal
+ */
+function gameEnd() {
+  if (hasGameEnded() && score > 0) {
     // Check if the game has ended and score is greater than 0
-    
-    
-
     let lowestHighScore = highScores[highScores.length - 1];
 
     if (!lowestHighScore || score > lowestHighScore.score) {
       gameOverModal.showModal(); // Show modal
-
-      
     }
   }
 }
 
-function random_food(min, max) {
+/**
+ * Handles the random location of the food
+ */
+function randomFood(min, max) {
   return Math.round((Math.random() * (max - min) + min) / 10) * 10;
 }
 
-function gen_food() {
+/**
+ * Handles the generation of food cells
+ */
+function genFood() {
   // Generate a random number the food x-coordinate
-  food_x = random_food(0, snakeboard.width - 10);
+  foodX = randomFood(0, snakeboard.width - 10);
   // Generate a random number for the food y-coordinate
-  food_y = random_food(0, snakeboard.height - 10);
+  foodY = randomFood(0, snakeboard.height - 10);
   // if the new food location is where the snake currently is, generate a new food location
-  snake.forEach(function has_snake_eaten_food(part) {
-    const has_eaten = part.x == food_x && part.y == food_y;
-    if (has_eaten) gen_food();
+  snake.forEach(function hasSnakeEatenFood(part) {
+    const hasEaten = part.x == foodX && part.y == foodY;
+    if (hasEaten) genFood();
   });
 }
 
-function change_direction(event) {
+/**
+ * Add logic to handle direction changes based on the key code
+ */
+function changeDirection(event) {
   const keyPressed = event.keyCode;
 
-// Add logic to handle direction changes based on the key code
-if (keyPressed === LEFT_KEY) {
   // Handle left direction
-  // Set dx and dy accordingly
-} else if (keyPressed === RIGHT_KEY) {
-  // Handle right direction
-  // Set dx and dy accordingly
-} else if (keyPressed === UP_KEY) {
-  // Handle up direction
-  // Set dx and dy accordingly
-} else if (keyPressed === DOWN_KEY) {
-  // Handle down direction
-  // Set dx and dy accordingly
-}
-
+  if (keyPressed === leftKey) {
+    // Handle right direction
+  } else if (keyPressed === rightKey) {
+    // Handle up direction
+  } else if (keyPressed === upKey) {
+    // Handle down direction
+  } else if (keyPressed === downKey) {
+  }
 
   // Prevent the snake from reversing
+  if (changingDirection) return;
+  changingDirection = true;
 
-  if (changing_direction) return;
-  changing_direction = true;
-  //const keyPressed = event.keyCode;
   const goingUp = dy === -10;
   const goingDown = dy === 10;
   const goingRight = dx === 10;
   const goingLeft = dx === -10;
-  if (keyPressed === LEFT_KEY && !goingRight) {
+
+  if (keyPressed === leftKey && !goingRight) {
     dx = -10;
     dy = 0;
   }
-  if (keyPressed === UP_KEY && !goingDown) {
+  if (keyPressed === upKey && !goingDown) {
     dx = 0;
     dy = -10;
   }
-  if (keyPressed === RIGHT_KEY && !goingLeft) {
+  if (keyPressed === rightKey && !goingLeft) {
     dx = 10;
     dy = 0;
   }
-  if (keyPressed === DOWN_KEY && !goingUp) {
+  if (keyPressed === downKey && !goingUp) {
     dx = 0;
     dy = 10;
   }
 }
 
-function move_snake() {
+/**
+ * Handles the snake movement and Eat Food to grow
+ */
+function moveSnake() {
   // Create the new Snake's head
   const head = { x: snake[0].x + dx, y: snake[0].y + dy };
   // Add the new head to the beginning of snake body
   snake.unshift(head);
-  const has_eaten_food = snake[0].x === food_x && snake[0].y === food_y;
-  if (has_eaten_food) {
+  const hasEatenFood = snake[0].x === foodX && snake[0].y === foodY;
+  if (hasEatenFood) {
     // Increase score
     score += 1;
-    //increaseScore();
     // Display score on screen
-    document.querySelector('#score').textContent = score.toString().padStart(3, '0');
+    document.querySelector("#score").textContent = score
+      .toString()
+      .padStart(3, "0");
     // Generate new food location
-    gen_food();
+    genFood();
   } else {
     // Remove the last part of snake body
     snake.pop();
@@ -314,31 +319,26 @@ function move_snake() {
 /**
  * controls the modal closing and passing player and and score to
  */
-function gameOver () {
+function gameOver() {
   gameOverModal.close();
   playerName = playerNameInput.value.trim().toUpperCase(); // Trim any leading/trailing whitespace and make Upper case
-
-  if (playerName !== "") { // If the player entered a name (not empty)
-    
+  // If the player entered a name (not empty)
+  if (playerName !== "") {
     // Display the updated high scores table
     updateHighScoresTable(playerName, score);
     console.log("New player High Score!");
   }
-  
   playerNameInput.value = "";
-};
-
+}
 
 function updateHighScoresTable(name, score) {
   highScores.push({ name, score });
   // Sort high scores
   highScores.sort((a, b) => b.score - a.score);
-
   // Remove excess entries beyond the defined limit
   if (highScores.length > maxHighScores) {
-  highScores.pop();
+    highScores.pop();
   }
-
   // Clear the table
   highScoresTable.innerHTML = "";
 
@@ -353,8 +353,8 @@ function updateHighScoresTable(name, score) {
 
     rankCell.innerHTML = i + 1;
     nameCell.innerHTML = displayedHighScores[i].name;
-    scoreCell.innerHTML = displayedHighScores[i].score.toString().padStart(3,'0');
+    scoreCell.innerHTML = displayedHighScores[i].score
+      .toString()
+      .padStart(3, "0");
   }
 }
-
-
