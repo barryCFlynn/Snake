@@ -55,11 +55,7 @@ footer {
     position: relative;
 }
 
-#screenLine {
-    width: 100%;
-    color: #283c01;
-    border-width: 2px;
-}
+
 
 #snakeboard {
     background-color: #9ddb0a;
