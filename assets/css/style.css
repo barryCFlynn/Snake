@@ -103,16 +103,12 @@ footer {
 
 /* CSS for Buttons */
 
-
-
-/* #flexContainer {
-    display: none;
-} */
+#play {
+    margin-bottom: 3rem;
+}
 
 #flexContainer {
-    display: flex;
-    flex-direction: column;
-    margin-top: 1rem;
+    display: none;
 }
 
 .flexItem {
@@ -124,22 +120,18 @@ footer {
 }
 
 .btn {
+    border: none;
     border-radius: 50%;
-    width: 3rem;
-    height: 2rem;
-}
+    width: 4rem; 
+    height: 3rem; 
+    font-size: 2rem; 
+    background-color: #283c01;
+    color: #9ddb0a;
+  }
 
 
 /* CSS to style the modal */
  
-/* #gameOverModal {
-    display: show;
-    text-align: center;
-    margin: auto;
-    padding: 1rem;
-    background-color: #b4bade;
-} */
-
 #gameOverModal {
     display: show; /* Initially hide the modal */
     position: fixed;
@@ -224,6 +216,20 @@ footer {
     }
     #score {
         font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    #flexContainer {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+    }
+
+    #play {
+        margin-bottom: 0;
     }
 }
 
