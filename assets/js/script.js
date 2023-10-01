@@ -115,8 +115,10 @@ function startGame() {
     // Reset game state
     resetGame();
     gameStarted = true; // Set the game as started
-    // Start the game loop
-    main();
+    //Disable scrolling while game if ongoing
+    document.body.style.overflow = 'hidden';
+        // Start the game loop
+    main();WS
     console.log("startGame has run");
   }
 }
@@ -217,7 +219,9 @@ function hasGameEnded() {
  * Handles Game end to check if score is high enough to trigger Modal
  */
 function gameEnd() {
-  if (hasGameEnded() && score > 0) {
+  if (hasGameEnded()) {
+    //Enable scrolling when game is over
+    document.body.style.overflow = 'auto';
     // Check if the game has ended and score is greater than 0
     let lowestHighScore = highScores[highScores.length - 1];
 
