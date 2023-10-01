@@ -24,6 +24,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
  }
 
 #screen {
@@ -34,10 +35,11 @@ header {
     padding: 1vw;
     margin-top: 2vh;
     margin-bottom: 2vh;
+
 }
 
 #score {
-    font-size: 3vw;
+    font-size: 3rem;
     width: 100%;
     position: relative;
 }
@@ -90,7 +92,7 @@ footer {
   }
   
   table td {
-    font-size: 2vh;
+    font-size: 4vh;
     color: #39406c;
   }
   
@@ -100,6 +102,8 @@ footer {
   }
 
 /* CSS for Buttons */
+
+
 
 /* #flexContainer {
     display: none;
@@ -128,13 +132,71 @@ footer {
 
 /* CSS to style the modal */
  
-#gameOverModal {
+/* #gameOverModal {
     display: show;
     text-align: center;
     margin: auto;
     padding: 1rem;
     background-color: #b4bade;
-}
+} */
+
+#gameOverModal {
+    display: show; /* Initially hide the modal */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #141C1D;
+    color: #9ddb0a;
+    /* font-family: 'VT323', monospace; */
+    border: 2px solid #283c01;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 80vw;
+  }
+  
+  #gameOverForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #gameOverModal h1 {
+    font-size: 3rem;
+  }
+  
+  #gameOverModal h3 {
+    font-size: 2rem;
+  }
+  
+  #gameOverModal input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid #b4bade;
+    background-color: transparent;
+    color: #9ddb0a;
+    font-size: 18px;
+    text-align: center;
+  }
+  
+  .button {
+    background-color: #283c01;
+    color: #9ddb0a;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  
+  .button:hover {
+    background-color: #9ddb0a;
+    color: #141C1D;
+  }
+  
 
 /* Media Queries */
 
@@ -146,3 +208,48 @@ footer {
         margin-top: 1rem;
     }
 } */
+
+@media (max-width: 1400px) {
+    #snakeboard {
+        width: 50vw;
+    }
+    #score {
+        font-size: 2.7rem;
+    }
+}
+
+@media (max-width: 1125px) {
+    #snakeboard {
+        width: 60vw;
+    }
+    #score {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 930px) {
+    #snakeboard {
+        width: 70vw;
+    }
+    #score {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 800px) {
+    #snakeboard {
+        width: 80vw;
+    }
+    #score {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 700px) {
+    #snakeboard {
+        width: 95vw;
+    }
+    #score {
+        font-size: 1.8rem;
+    }
+}
