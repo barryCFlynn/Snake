@@ -14,23 +14,43 @@ header {
     font-size: 2.5rem;
 }
 
-
 #logo {
     color: #9ddb0a;
 }
 
 #wrapper {
-   background-color: #39406c;
-   align-content: center;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
+    background-color: #39406c;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+
+#screen {
+    display: flex;
+    background-color: #9ddb0a;
+    flex-direction: column;
+    align-items: center;
+    padding: 1vw;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+#score {
+    font-size: 3vw;
+    width: 100%;
+    position: relative;
+}
+
+#snakeboard {
+    background-color: #9ddb0a;
+    border: 3px solid #283c01;
+    width: 40vw;
 }
 
 footer {
     background-color: #b4bade;
-    text-align: center;
-    padding: 3rem;
+    padding: 1rem;
 }
 
 #socials a {
@@ -39,34 +59,56 @@ footer {
     color: #283c01;
 }
 
-#screen {
-    display: flex;
-    background-color: #9ddb0a;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
+/* CSS for High Scores Table */
 
-#score {
-    font-size: 3rem;
-    width: 100%;
-    position: relative;
-}
-
-
-
-#snakeboard {
-    background-color: #9ddb0a;
+.table {
+    text-align: center;
+  }
+  
+  .table h2 {
+    margin-bottom: 1rem; /* Add a gap below the h2 */
+    font-size: 4vh;
+    color: #283c01;
+  }
+  
+  table {
+    margin: 0 auto; 
+    border-collapse: collapse;
+    width: 40vw; 
     border: 3px solid #283c01;
-    width: 50vw;
-}
+  }
+  
+  table th, table td {
+    padding: 10px;
+  }
+  
+  table th {
+    background-color: #39406c;
+    color: #9ddb0a;
+    font-weight: bold;
+    font-size: 3vh;
+  }
+  
+  table td {
+    font-size: 2vh;
+    color: #39406c;
+  }
+  
+  #socials {
+    margin-top: 2rem;
+    text-align: center;
+  }
 
 /* CSS for Buttons */
 
-#flexContainer {
+/* #flexContainer {
     display: none;
+} */
+
+#flexContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
 }
 
 .flexItem {
@@ -83,9 +125,6 @@ footer {
     height: 2rem;
 }
 
-.table {
-    margin-top: 2rem;
-}
 
 /* CSS to style the modal */
  
@@ -100,10 +139,10 @@ footer {
 /* Media Queries */
 
 /* Arrow buttons will only show if the browser does not detect a mouse pointer */
-@media (pointer:coarse) {
+/* @media (pointer:coarse) {
     #flexContainer {
         display: flex;
         flex-direction: column;
         margin-top: 1rem;
     }
-}
+} */

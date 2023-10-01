@@ -339,14 +339,18 @@ function updateHighScoresTable(name, score) {
   if (highScores.length > maxHighScores) {
     highScores.pop();
   }
-  // Clear the table
-  highScoresTable.innerHTML = "";
+
+  // Get the Tbody element to variable
+  const tbody = highScoresTable.querySelector("tbody");
+
+  // Clear the table body
+  tbody.innerHTML = "";
 
   // Display only the top 'maxHighScores' entries
   const displayedHighScores = highScores.slice(0, maxHighScores);
 
   for (let i = 0; i < displayedHighScores.length; i++) {
-    const row = highScoresTable.insertRow();
+    const row = tbody.insertRow();
     const rankCell = row.insertCell(0);
     const nameCell = row.insertCell(1);
     const scoreCell = row.insertCell(2);
