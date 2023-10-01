@@ -53,6 +53,7 @@ header {
 footer {
     background-color: #b4bade;
     padding: 1rem;
+    height: 60vh;
 }
 
 #socials a {
@@ -140,9 +141,8 @@ footer {
     transform: translate(-50%, -50%);
     background-color: #141C1D;
     color: #9ddb0a;
-    /* font-family: 'VT323', monospace; */
-    border: 2px solid #283c01;
-    padding: 20px;
+    border: 0.1rem solid #283c01;
+    padding: 2rem;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     max-width: 80vw;
@@ -164,10 +164,10 @@ footer {
   
   #gameOverModal input {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
+    padding: 1rem;
+    margin: 1rem 0;
     border: none;
-    border-bottom: 2px solid #b4bade;
+    border-bottom: 0.2rem solid #b4bade;
     background-color: transparent;
     color: #9ddb0a;
     font-size: 18px;
