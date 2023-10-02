@@ -1,79 +1,65 @@
 # Snake
 
+I chose to build a Snake game for my JavaScript project due to its nostalgic appeal, reminiscent of classic arcade gaming. Additionally, it provided a valuable opportunity to explore complex game mechanics and hone my coding skills while delivering a fun and engaging user experience.
 
+ In 1997, Nokia put Snake on a phone called the Nokia 6110. Yes, the phone your father used for work purposes and you did, for playing Snake. This was the beginning of Snake in your pocket, the game almost went viral, signalling a new era in mobile phone gaming.
 
-This site is let user play the classic Snake game that come on the Nokia 3310 back in the year 2000, there were 126 million Nokia phones sold in that year making this phone one of the most successful 
+What started in 1997, reached viral status in the year 2000, with the launch of the Nokia 3310. One of the best selling mobile phones of all time, the Nokia sold 126 million units of this device in that year. Residing within the device, was Snake, the game that quickly became a household name in India and the world alike.
 
 https://www.digit.in/features/mobile-phones/a-brief-history-of-snake-33913.html
 
+Link to My Site: https://barrycflynn.github.io/Snake/
 
-In this section, you will include one or two paragraphs providing an overview of your project. Essentially, this part is your sales pitch. At this stage, you should have a name for your project so use it! Don’t introduce the project as a Portfolio project for the diploma. In this section, describe what the project hopes to accomplish, who it is intended to target and how it will be useful to the target audience. 
 
-For example; Love Running is a site that hopes to help keep people motivated to meet up for runs on a regular basis in Dublin, Ireland. The site will be targeted toward runners who are looking for a way to socialise and keep themselves fit. Love Running will be useful for runners to see exactly when and where they should be to join the running club. 
-
-![Responsice Mockup](https://github.com/lucyrush/readme-template/blob/master/media/love_running_mockup.png)
+![Am I Responsive](assets/images/README-images/amIResponsive_Snake.png)
 
 ## Features 
 
-In this section, you should go over the different parts of your project, and describe each in a sentence or so. You will need to explain what value each of the features provides for the user, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
+- Classic Gameplay: Enjoy the timeless fun of guiding the snake to eat food and grow longer.
+- High Scores: Compete with friends and aim for the top spot on the high scores table.
+- Responsive Design: Play on various devices, as the game adapts to different screen sizes.
 
 ### Existing Features
 
-- __Navigation Bar__
+- Classic Snake Gameplay: Experience the nostalgia of the original Snake game, where you control a snake to collect food and grow longer. Avoid collisions with walls and your own tail to stay in the game.
 
-  - Featured on all three pages, the full responsive navigation bar includes links to the Logo, Home page, Gallery and Sign Up page and is identical in each page to allow for easy navigation.
-  - This section will allow the user to easily navigate from page to page across all devices without having to revert back to the previous page via the ‘back’ button. 
+<img src="assets\images\README-images\snake_board.png" alt="Picture of Snake Play board">
 
-![Nav Bar](https://github.com/lucyrush/readme-template/blob/master/media/love_running_nav.png)
+- High Scores: Keep track of your best scores and compete with yourself or others to achieve the highest score possible. The game maintains a high scores table to showcase your achievements.
 
-- __The landing page image__
+<img src="assets\images\README-images\high_scores.png" alt="Picture of High Scores table">
 
-  - The landing includes a photograph with text overlay to allow the user to see exactly which location this site would be applicable to. 
-  - This section introduces the user to Love Running with an eye catching animation to grab their attention
+Responsive Design: Play the game seamlessly on a variety of devices, including desktops, laptops, tablets, and mobile phones. The responsive design ensures an enjoyable gaming experience regardless of your screen size.
 
-![Landing Page](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+- Modal Dialog: When you achieve a high score, a modal dialog appears, allowing you to enter your name and save your score. This feature adds a personal touch to the game and motivates players to aim for the top of the leaderboard.
 
-- __Club Ethos Section__
+<img src="assets\images\README-images\modal.png" alt="Picture of Modal">
 
-  - The club ethos section will allow the user to see the benefits of joining the Love Running meetups, as well as the benefits of running overall. 
-  - This user will see the value of signing up for the Love Running meetups. This should encourage the user to consider running as their form of exercise. 
+Mobile-Friendly Controls: Navigate the snake easily on mobile devices using on-screen buttons for directional control, enhancing the game's accessibility and playability on touchscreens, the buttons will appear at screen resolution below 1024 px.
 
-![Club Ethos](https://github.com/lucyrush/readme-template/blob/master/media/love_running_ethos.png)
-
-- __Meetup Times section__
-
-  - This section will allow the user to see exactly when the meetups will happen, where they will be located and how long the run will be in kilometers. 
-  - This section will be updated as these times change to keep the user up to date. 
-
-![Meetup Times](https://github.com/lucyrush/readme-template/blob/master/media/love_running_times.png)
-
-- __The Footer__ 
-
-  - The footer section includes links to the relevant social media sites for Love Running. The links will open to a new tab to allow easy navigation for the user. 
-  - The footer is valuable to the user as it encourages them to keep connected via social media
-
-![Footer](https://github.com/lucyrush/readme-template/blob/master/media/love_running_footer.png)
-
-- __Gallery__
-
-  - The gallery will provide the user with supporting images to see what the meet ups look like. 
-  - This section is valuable to the user as they will be able to easily identify the types of events the organisation puts together. 
-
-![Gallery](https://github.com/lucyrush/readme-template/blob/master/media/love_running_gallery.png)
-
-- __The Sign Up Page__
-
-  - This page will allow the user to get signed up to Love Running to start their running journey with the community. The user will be able specify if they would like to take part in road, trail or both types of running. The user will be asked to submit their full name and email address. 
-
-![Sign Up](https://github.com/lucyrush/readme-template/blob/master/media/love_running_signup.png)
-
-For some/all of your features, you may choose to reference the specific project files that implement them.
-
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
+<img src="assets\images\README-images\onscreen_arrows.png" alt="Picture of on screen arrows">
 
 ### Features Left to Implement
 
-- Another feature idea
+- Persistent High Score Table: Implement a feature to store high scores in browser storage or on a server, ensuring that the high score table retains player achievements even after closing the game. This adds a sense of competition and motivation for players to improve their scores over time.
+
+- Mobile Device Vibration: Enhance the mobile gaming experience by adding haptic feedback (vibration) when players press arrow buttons to control the snake's direction. This tactile feedback provides a satisfying and responsive feel to the game, making it more engaging and enjoyable on touch devices.
+
+### Challenges
+
+ - The Snake game was taken from a guide I used while prepping for this course, there was a significant challenge in understanding the mechanincs of how the game ran. And through modifying the code to make it fit in with the project theme I learned a lot
+ - Creating the High Score table, and functions make it work in the game loop
+ - creating the modal and functions to make it work in the game loop
+ - 
+ - the on screen arrow keys, making sure the spacing was good enough took a lot of testing
+ 
+ ### Bug Fixes
+
+ - High score table headers not showing, original code was set to overright them. Edited code to target Tbody only leaving headers alone
+ - Working out how to disble scrolling on desktop and mobile while the game was running to prevent interference
+ - 
+
+
 
 ## Testing 
 

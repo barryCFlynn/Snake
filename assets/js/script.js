@@ -79,22 +79,10 @@ btnDown.addEventListener("click", () => changeDirection({ keyCode: downKey }));
 //close modal even listener
 closeModal.addEventListener("click", gameOver);
 
-document.addEventListener("keydown", disableArrowScrolling);
-
 //FUNCTIONS
 
 // initialise game state
 initGame();
-
-/**
- *  Disable default arrow key to scroll webpage
- */
-function disableArrowScrolling(e) {
-  if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(e.key)) {
-    // Check if the pressed key is an arrow key (left, right, up, or down)
-    e.preventDefault(); // Prevent the default scrolling behavior
-  }
-}
 
 /**
  * Initial game initalisation on page load
