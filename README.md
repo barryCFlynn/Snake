@@ -45,54 +45,87 @@ Mobile-Friendly Controls: Navigate the snake easily on mobile devices using on-s
 
 - Mobile Device Vibration: Enhance the mobile gaming experience by adding haptic feedback (vibration) when players press arrow buttons to control the snake's direction. This tactile feedback provides a satisfying and responsive feel to the game, making it more engaging and enjoyable on touch devices.
 
-### Challenges
+### Challenges Faced
+- Understanding Game Mechanics: Adapting the Snake game from a tutorial presented a challenge in grasping its core mechanics. This involved comprehending how movement, growth, and collision detection worked within the game's logic.
 
- - The Snake game was taken from a guide I used while prepping for this course, there was a significant challenge in understanding the mechanincs of how the game ran. And through modifying the code to make it fit in with the project theme I learned a lot
- - Creating the High Score table, and functions make it work in the game loop
- - creating the modal and functions to make it work in the game loop
- - 
- - the on screen arrow keys, making sure the spacing was good enough took a lot of testing
- 
- ### Bug Fixes
+- Implementing High Score Table: Creating a functional high score table within the game loop posed a significant challenge. This required integrating the table seamlessly with the game's mechanics and ensuring it updated accurately.
 
- - High score table headers not showing, original code was set to overright them. Edited code to target Tbody only leaving headers alone
- - Working out how to disble scrolling on desktop and mobile while the game was running to prevent interference
- - 
+- Designing the Modal: Developing the modal for player input and high score display within the game loop presented challenges. Ensuring its proper functionality and integration into the game was a key aspect of the project.
 
-
+- Mobile Compatibility: Making the game mobile-friendly required creating on-screen touch controls that worked harmoniously with the keyboard inputs. Adjusting the spacing and responsiveness of on-screen arrow keys was an iterative process.
 
 ## Testing 
 
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your project’s features and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
+<details>
+<summary>Lighthouse  -  PASS</summary>
 
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
+* Mobile
 
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
+    <img src="assets\images\README-images\lighthouse_mobile.png" alt="Description" width="550" height="150">
 
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
+* Desktop
+
+    <img src="assets\images\README-images\lighthouse_desktop.png" alt="Description" width="550" height="150">
+</details>
+
+<details>
+<summary>W3C Markup Validtor - PASS</summary>
+    <img src="assets\images\README-images\html_validate.png" alt="Description">        
+</details>
+
+<details>
+<summary>W3C CSS Validator - PASS</summary>
+<img src="assets\images\README-images\css_validate.png" alt="Description">        
+</details>
+
+<detailS>
+<summary>Responsive - PASS</summary>
+
+* Resolutions checked
+
+    - 320x568: Used by small smartphones or devices in portrait mode.
+    - 375x667: Used by smartphones like iPhone 6/7/8 in portrait mode.
+    - 360x640: Common resolution for many budget and mid-range smartphones.
+    - 414x896: Found on various iPhone models like iPhone X, XS, 11 Pro, and 12 Pro.
+    - 768x1024: Common resolution for tablets in portrait mode, such as the iPad.
+    - 1024x768: Another common resolution for tablets, especially in landscape mode.
+    - 1280x800: Common resolution for smaller laptops and tablets.
+    - 1366x768: Common for laptops and desktop monitors.
+    - 1920x1080: Full HD resolution, used on larger monitors, laptops, and some mobile   devices.
+    
+</details>
+
+### Manual Testing
+
+- The website was tested on Google Chrome and Microsoft Edge.
+- The website was viewed on various monitors and resolutions and on a Pixel 7 mobile phone.
+- Vigorous testing was done on links to ensure navigation between pages work correctly.
+- Chrome Dev Tools was used to test how the site looks on various screen sizes.
+
+### Bug Fixes and Improvements
+- High Score Table Display: Fixed an issue where high score table headers were not displaying. Adjusted the code to target the table body only, preserving the headers.
+
+- Preventing Scrolling: Resolved an issue with unwanted scrolling on both desktop and mobile devices during gameplay. Implemented measures to disable scrolling while the game is running to prevent interference.
+
+- Modal and High Scores: Addressed a bug where the modal was not updating the high scores table correctly. Reordered code and introduced a dedicated function to ensure accurate updating.
 
 
-### Validator Testing 
-
-- HTML
-  - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcode-institute-org.github.io%2Flove-running-2.0%2Findex.html)
-- CSS
-  - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fvalidator.w3.org%2Fnu%2F%3Fdoc%3Dhttps%253A%252F%252Fcode-institute-org.github.io%252Flove-running-2.0%252Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en#css)
 
 ### Unfixed Bugs
 
 You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a big variable to consider, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed. 
 
-## Deployment
+## Deployment and local development
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub) 
+### GitHub Pages
 
-- The site was deployed to GitHub pages. The steps to deploy are as follows: 
-  - In the GitHub repository, navigate to the Settings tab 
-  - From the source section drop-down menu, select the Master Branch
-  - Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment. 
-
-The live link can be found here - https://code-institute-org.github.io/love-running-2.0/index.html 
+GitHub Pages used to deploy live version of the website.
+1. Log in to GitHub and locate [GitHub Repository Luxe TimePieces](https://barrycflynn.github.io/Luxe_TimePieces/)
+2. At the top of the Repository(not the main navigation) locate "Settings" button on the menu.
+3. Scroll down the Settings page until you locate "GitHub Pages".
+4. Under "Source", click the dropdown menu "None" and select "Main" and click "Save".
+5. The page will automatically refresh.
+6. Scroll back to locate the now-published site [link](https://barrycflynn.github.io/Luxe_TimePieces/) in the "GitHub Pages" section.
 
 
 ## Credits 
