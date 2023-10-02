@@ -138,7 +138,6 @@ footer {
 /* CSS to style the modal */
  
 #gameOverModal {
-    display: hidden; /* Initially hide the modal */
     position: fixed;
     top: 50%;
     left: 50%;
