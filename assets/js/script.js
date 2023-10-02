@@ -106,7 +106,7 @@ function startGame() {
     //Disable scrolling while game if ongoing
     document.body.style.overflow = 'hidden';
         // Start the game loop
-    main();WS
+    main();
     console.log("startGame has run");
   }
 }
@@ -133,7 +133,9 @@ function main() {
   }, 100); // game loop 100ms or 10 times per second
 }
 
-//function to reset game on play button
+/**
+ * Reset game on play button use
+ */
 function resetGame() {
   // Reset game variables, e.g., score, snake position
   score = 0;
@@ -151,7 +153,9 @@ function resetGame() {
   console.log("resetGame has run");
 }
 
-// constantly draw the board to remove old snake
+/**
+ * Constantly draw the board to remove old snake
+ */
 function clearBoard() {
   //  Select the colour to fill the drawing
   snakeboardCtx.fillStyle = boardBackground;

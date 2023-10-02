@@ -4,10 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <meta
+      name="description"
+      content="Enjoy the classic Snake game online. Test your skills and see 
+      how long you can grow the snake without hitting the walls or yourself. 
+      Play now and challenge your friends to beat your high score!"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- google font import-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- font awesome import-->
     <script
       src="https://kit.fontawesome.com/87f631cc45.js"
       crossorigin="anonymous"
@@ -32,18 +43,26 @@
 
       <div id="flexContainer">
         <div class="flexItem">
-          <button class="btn" id="btnUp"><i class="fa-solid fa-circle-arrow-up"></i></button>
+          <button class="btn" id="btnUp">
+            <i class="fa-solid fa-circle-arrow-up"></i>
+          </button>
         </div>
         <div class="flexItem">
-          <button class="btn" id="btnLeft"><i class="fa-solid fa-circle-arrow-left"></i></button>
+          <button class="btn" id="btnLeft">
+            <i class="fa-solid fa-circle-arrow-left"></i>
+          </button>
           <span></span>
-          <button class="btn" id="btnRight"><i class="fa-solid fa-circle-arrow-right"></i></button>
+          <button class="btn" id="btnRight">
+            <i class="fa-solid fa-circle-arrow-right"></i>
+          </button>
         </div>
         <div class="flexItem">
-          <button class="btn" id="btnDown"><i class="fa-solid fa-circle-arrow-down"></i></button>
+          <button class="btn" id="btnDown">
+            <i class="fa-solid fa-circle-arrow-down"></i>
+          </button>
         </div>
+      </div>
     </div>
-    </div> 
 
     <!--Modal Dialog for High score and name input-->
     <dialog id="gameOverModal">
@@ -51,7 +70,13 @@
         <h1>You have a High Score!</h1>
         <h3>Please add your name</h3>
         <label for="playerName">
-          <input type="text" name="player-name" id="playerName" placeholder="Your Name" maxlength="5">
+          <input
+            type="text"
+            name="player-name"
+            id="playerName"
+            placeholder="Your Name"
+            maxlength="5"
+          />
         </label>
         <button class="button" type="submit" id="closeModal">Save</button>
       </form>
@@ -67,9 +92,8 @@
               <th>Score</th>
               <th>Name</th>
             </tr>
-        </thead>
-        <tbody>
-        </tbody>
+          </thead>
+          <tbody></tbody>
         </table>
       </div>
       <div id="socials">
