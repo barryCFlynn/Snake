@@ -2,50 +2,110 @@
 
 I chose to build a Snake game for my JavaScript project due to its nostalgic appeal, reminiscent of classic arcade gaming. Additionally, it provided a valuable opportunity to explore complex game mechanics and hone my coding skills while delivering a fun and engaging user experience.
 
- In 1997, Nokia put Snake on a phone called the Nokia 6110. Yes, the phone your father used for work purposes and you did, for playing Snake. This was the beginning of Snake in your pocket, the game almost went viral, signalling a new era in mobile phone gaming.
+In 1997, Nokia put Snake on a phone called the Nokia 6110. Yes, the phone your father used for work purposes and you did, for playing Snake. This was the beginning of Snake in your pocket, the game almost went viral, signalling a new era in mobile phone gaming.
 
 What started in 1997, reached viral status in the year 2000, with the launch of the Nokia 3310. One of the best selling mobile phones of all time, the Nokia sold 126 million units of this device in that year. Residing within the device, was Snake, the game that quickly became a household name in India and the world alike.
 
-https://www.digit.in/features/mobile-phones/a-brief-history-of-snake-33913.html
+A brief history can be found here: https://www.digit.in/features/mobile-phones/a-brief-history-of-snake-33913.html
 
-Link to My Site: https://barrycflynn.github.io/Snake/
+
+[View Snake live project here](https://barrycflynn.github.io/Snake/)
 
 
 ![Am I Responsive](assets/images/README-images/amIResponsive_Snake.png)
 
-## Features 
+## Table of Contents
 
-- Classic Gameplay: Enjoy the timeless fun of guiding the snake to eat food and grow longer.
+### [User Experience](#user-experience-1)
+### [User Stories](#user-stories-1)
+### [Features](#features-1)
+### [Existing Features](#existing-features-1)
+### [Features Left to Implement](#features-left-to-implement-1)
+### [Challenges Faced](#challenges-faced-1)
+### [Testing](#testing-1)
+### [Deployment and local development](#deployment-and-local-development-1)
+### [Design](#design-1)
+### [Technologies Used](#technologies-used-1)
+### [Sites & Programs Used](#sites--programs-used-1)
+### [Credits](#credits-1)
+
+---
+
+## User Experience
+
+- Game Objective: The goal of the game is to control the snake's movement and guide it to eat the food that appears on the screen. As the snake consumes food, it grows longer, and your score increases.
+
+- Controls: You can control the snake using either the arrow keys on your keyboard or on-screen buttons if you're playing on a mobile device. Use the following keys or buttons:
+
+- Scoring: Your score is displayed at the top of the screen. Each food item you eat increases your score. Try to achieve the highest score possible!
+
+- High Scores: After each game, if your score is among the top 5, you'll be prompted to enter your name. Your high score will be recorded and displayed on the High Scores table.
+
+- Modal: If you achieve a high score, a modal will appear, allowing you to enter your name for bragging rights. Your rank will be displayed alongside your score.
+
+- Enjoy the Challenge: Challenge yourself to beat your own high score or compete with friends and family to see who can become the ultimate Snake champion!
+
+- Have Fun: Most importantly, have fun playing the Snake game and relive the nostalgia of this classic.
+
+---
+
+## User Stories
+
+#### For First-time Visitors
+* When first visiting the website, I want to be immediately drawn to the game area with a clear depiction of the Snake and a Play button that encourages me to start a game.
+#### For Returning Visitors
+* As a returning visitor, I aim to play the game again and challenge myself to surpass the existing High Scores.
+#### For Frequent Users
+* For those who frequently play the game, my goal is to continually improve and strive to achieve the highest scores on the leaderboard.
+
+---
+
+## Features
+
+- Classic Gameplay Enjoy the timeless fun of guiding the snake to eat food and grow longer.
 - High Scores: Compete with friends and aim for the top spot on the high scores table.
 - Responsive Design: Play on various devices, as the game adapts to different screen sizes.
 
-### Existing Features
+---
 
-- Classic Snake Gameplay: Experience the nostalgia of the original Snake game, where you control a snake to collect food and grow longer. Avoid collisions with walls and your own tail to stay in the game.
+## Existing Features
+
+### Classic Snake Gameplay
+- Experience the nostalgia of the original Snake game, where you control a snake to collect food and grow longer. Avoid collisions with walls and your own tail to stay in the game.
 
 <img src="assets\images\README-images\snake_board.png" alt="Picture of Snake Play board">
 
-- High Scores: Keep track of your best scores and compete with yourself or others to achieve the highest score possible. The game maintains a high scores table to showcase your achievements.
+### High Scores
+-  Keep track of your best scores and compete with yourself or others to achieve the highest score possible. The game maintains a high scores table to showcase your achievements.
 
 <img src="assets\images\README-images\high_scores.png" alt="Picture of High Scores table">
 
-Responsive Design: Play the game seamlessly on a variety of devices, including desktops, laptops, tablets, and mobile phones. The responsive design ensures an enjoyable gaming experience regardless of your screen size.
+### Responsive Design
+- Play the game seamlessly on a variety of devices, including desktops, laptops, tablets, and mobile phones. The responsive design ensures an enjoyable gaming experience regardless of your screen size.
 
-- Modal Dialog: When you achieve a high score, a modal dialog appears, allowing you to enter your name and save your score. This feature adds a personal touch to the game and motivates players to aim for the top of the leaderboard.
+### Modal Dialog
+- When you achieve a high score, a modal dialog appears, allowing you to enter your name and save your score. This feature adds a personal touch to the game and motivates players to aim for the top of the leaderboard.
 
 <img src="assets\images\README-images\modal.png" alt="Picture of Modal">
 
-Mobile-Friendly Controls: Navigate the snake easily on mobile devices using on-screen buttons for directional control, enhancing the game's accessibility and playability on touchscreens, the buttons will appear at screen resolution below 1024 px.
+### Mobile-Friendly Controls
+- Navigate the snake easily on mobile devices using on-screen buttons for directional control, enhancing the game's accessibility and playability on touchscreens, the buttons will appear at screen resolution below 1024 px.
 
 <img src="assets\images\README-images\onscreen_arrows.png" alt="Picture of on screen arrows">
 
-### Features Left to Implement
+---
+
+## Features Left to Implement
 
 - Persistent High Score Table: Implement a feature to store high scores in browser storage or on a server, ensuring that the high score table retains player achievements even after closing the game. This adds a sense of competition and motivation for players to improve their scores over time.
 
 - Mobile Device Vibration: Enhance the mobile gaming experience by adding haptic feedback (vibration) when players press arrow buttons to control the snake's direction. This tactile feedback provides a satisfying and responsive feel to the game, making it more engaging and enjoyable on touch devices.
 
-### Challenges Faced
+- Mobile Landscape Redesign: When playing the game in landscape mode on mobile devices, the current layout with on-screen buttons may not be optimized. It's worth exploring a redesign to better accommodate landscape orientation.
+
+---
+
+## Challenges Faced
 - Understanding Game Mechanics: Adapting the Snake game from a tutorial presented a challenge in grasping its core mechanics. This involved comprehending how movement, growth, and collision detection worked within the game's logic.
 
 - Implementing High Score Table: Creating a functional high score table within the game loop posed a significant challenge. This required integrating the table seamlessly with the game's mechanics and ensuring it updated accurately.
@@ -53,6 +113,8 @@ Mobile-Friendly Controls: Navigate the snake easily on mobile devices using on-s
 - Designing the Modal: Developing the modal for player input and high score display within the game loop presented challenges. Ensuring its proper functionality and integration into the game was a key aspect of the project.
 
 - Mobile Compatibility: Making the game mobile-friendly required creating on-screen touch controls that worked harmoniously with the keyboard inputs. Adjusting the spacing and responsiveness of on-screen arrow keys was an iterative process.
+
+---
 
 ## Testing 
 
@@ -99,13 +161,12 @@ Mobile-Friendly Controls: Navigate the snake easily on mobile devices using on-s
 
 - The website was tested on Google Chrome and Microsoft Edge.
 - The website was viewed on various monitors and resolutions and on a Pixel 7 mobile phone.
-- Vigorous testing was done on links to ensure navigation between pages work correctly.
 - Chrome Dev Tools was used to test how the site looks on various screen sizes.
 
 ### Bug Fixes and Improvements
 - High Score Table Display: Fixed an issue where high score table headers were not displaying. Adjusted the code to target the table body only, preserving the headers.
 
-- Preventing Scrolling: Resolved an issue with unwanted scrolling on both desktop and mobile devices during gameplay. Implemented measures to disable scrolling while the game is running to prevent interference.
+- Preventing Scrolling: Resolved an issue with unwanted scrolling on both desktop and mobile devices during game play. Implemented measures to disable scrolling while the game is running to prevent interference.
 
 - Modal and High Scores: Addressed a bug where the modal was not updating the high scores table correctly. Reordered code and introduced a dedicated function to ensure accurate updating.
 
@@ -113,54 +174,87 @@ Mobile-Friendly Controls: Navigate the snake easily on mobile devices using on-s
 
 ### Unfixed Bugs
 
-You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a big variable to consider, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed. 
+When playing the game in landscape mode on mobile devices, the current layout with on-screen buttons are off screen, I am not familiar with Game Design to suggest a alternative button layout that would operate intuitively.
+
+---
 
 ## Deployment and local development
 
 ### GitHub Pages
 
 GitHub Pages used to deploy live version of the website.
-1. Log in to GitHub and locate [GitHub Repository Luxe TimePieces](https://barrycflynn.github.io/Luxe_TimePieces/)
+1. Log in to GitHub and locate [GitHub Repository Snake](https://github.com/barryCFlynn/Snake)
 2. At the top of the Repository(not the main navigation) locate "Settings" button on the menu.
 3. Scroll down the Settings page until you locate "GitHub Pages".
 4. Under "Source", click the dropdown menu "None" and select "Main" and click "Save".
 5. The page will automatically refresh.
-6. Scroll back to locate the now-published site [link](https://barrycflynn.github.io/Luxe_TimePieces/) in the "GitHub Pages" section.
+6. Scroll back to locate the now-published site [link](https://barrycflynn.github.io/Snake/) in the "GitHub Pages" section.
 
+---
+## Design
 
-## Credits 
+### Colour Scheme
+* The color scheme was selected to emulate the design of the Nokia 3310, featuring a transition from the iconic blue casing to subtle gray accents and a vibrant green screen.
+    - Primary Background Colour
 
-In this section you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism. 
+        ![#39406C](https://placehold.it/150x40/39406c/FFFFFF?text=39406c)
+    - Secondary Background Colour
 
-You can break the credits section up into Content and Media, depending on what you have included in your project. 
+        ![#B4BADE](https://placehold.it/150x40/b4bade/FFFFFF?text=b4bade)
+    - Primary Text and Screen Colour
+    
+        ![#9DDB0A](https://placehold.it/150x40/9ddb0a/FFFFFF?text=9ddb0a)
 
-### Content 
+    - Secondary text and Screen Colour
 
-- The text for the Home page was taken from Wikipedia Article A
-- Instructions on how to implement form validation on the Sign Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
+         ![#283C01](https://placehold.it/150x40/283c01/FFFFFF?text=283c01)
 
-### Media
+    * Contrast Grid - Only AA and AAA options used.
 
-- The photos used on the home and sign up page are from This Open Source site
-- The images used for the gallery page were taken from this other open source site
+        <img src="assets\images\README-images\cont_grid.png" alt="Description">
+            
 
+### Fonts
+* 'VT323' font is main font used throughout the site for its retro game style.
 
-Congratulations on completing your Readme, you have made another big stride in the direction of being a developer! 
+### Layout
+- Explored various game layouts and designs to ensure an engaging and intuitive experience for players. Considered factors like screen space utilization, ease of navigation, and visual appeal.
+- Opted for a user-friendly layout featuring a clear game area with the snake drawn on it. Incorporated on-screen buttons for mobile users, enhancing accessibility and gameplay.
 
-## Other General Project Advice
+---
 
-Below you will find a couple of extra tips that may be helpful when completing your project. Remember that each of these projects will become part of your final portfolio so it’s important to allow enough time to showcase your best work! 
+## Technologies Used
 
-- One of the most basic elements of keeping a healthy commit history is with the commit message. When getting started with your project, read through [this article](https://chris.beams.io/posts/git-commit/) by Chris Beams on How to Write  a Git Commit Message 
-  - Make sure to keep the messages in the imperative mood 
+ * HTML
+ * CSS
+ * JavaScript
+ * ChatGPT
+ 
+---
 
-- When naming the files in your project directory, make sure to consider meaningful naming of files, point to specific names and sections of content.
-  - For example, instead of naming an image used ‘image1.png’ consider naming it ‘landing_page_img.png’. This will ensure that there are clear file paths kept. 
+## Sites & Programs Used
 
-- Do some extra research on good and bad coding practices, there are a handful of useful articles to read, consider reviewing the following list when getting started:
-  - [Writing Your Best Code](https://learn.shayhowe.com/html-css/writing-your-best-code/)
-  - [HTML & CSS Coding Best Practices](https://medium.com/@inceptiondj.info/html-css-coding-best-practice-fadb9870a00f)
-  - [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html#General)
+* [Educative](//https://www.educative.io/blog/javascript-snake-game-tutorial)
+    * Walkthrough of game creation for basis of site, iterated on further
+* [VS Code](https://code.visualstudio.com/)
+    * Code editor.
+* [Git](https://git-scm.com/)
+    * To manage version control and push updates to GitHub.
+* [Github](https://github.com/)
+    * File Storage and Hosting the website.
+* [Google Fonts](https://fonts.google.com/)
+    * Import main font the website.
+* [Chat GPT](https://openai.com/blog/chatgpt)
+    * Only used for troubleshooting.
+* [Am I Responsive](https://ui.dev/amiresponsive)
+    * Mockup picture for the README file.
+* [8 Shapes Contrast Grid](contrast-grid.eightshapes.com)
+    * Used to make sure colours are compliant.
+* [Adobe Color](https://color.adobe.com/create/color-wheel)
+    * Used to select colours on the site
 
-Getting started with your Portfolio Projects can be daunting, planning your project can make it a lot easier to tackle, take small steps to reach the final outcome and enjoy the process! 
+---
+
+## Credits
+
+* [Educative](//https://www.educative.io/blog/javascript-snake-game-tutorial) This website played a pivotal role in bringing my project to life. It provided essential guidance on creating an interactive game, which I wouldn't have been able to accomplish without. It's important to note that the code underwent significant changes to make this project.
