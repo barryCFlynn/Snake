@@ -34,48 +34,48 @@ A brief history can be found here: https://www.digit.in/features/mobile-phones/a
 ### User Experience
 
 #### Game Objective 
-    The goal of the game is to control the snake's movement and guide it to eat the food that appears on the screen. As the snake consumes food, it grows longer, and your score increases.
+- The goal of the game is to control the snake's movement and guide it to eat the food that appears on the screen. As the snake consumes food, it grows longer, and your score increases.
 
 #### Controls 
-    You can control the snake using either the arrow keys on your keyboard or on####screen buttons if you're playing on a mobile device.
+- You can control the snake using either the arrow keys on your keyboard or on####screen buttons if you're playing on a mobile device.
 
 #### Scoring 
-    Your score is displayed at the top of the screen. Each food item you eat increases your score. Try to achieve the highest score possible!
+- Your score is displayed at the top of the screen. Each food item you eat increases your score. Try to achieve the highest score possible!
 
 #### High Scores 
-    After each game, if your score is among the top 5, you'll be prompted to enter your name. Your high score will be recorded and displayed on the High Scores table.
+- After each game, if your score is among the top 5, you'll be prompted to enter your name. Your high score will be recorded and displayed on the High Scores table.
 
 #### Modal 
-    If you achieve a high score, a modal will appear, allowing you to enter your name for bragging rights. Your rank will be displayed alongside your score.
+- If you achieve a high score, a modal will appear, allowing you to enter your name for bragging rights. Your rank will be displayed alongside your score.
 
 #### Enjoy the Challenge 
-    Challenge yourself to beat your own high score or compete with friends and family to see who can become the ultimate Snake champion!
+- Challenge yourself to beat your own high score or compete with friends and family to see who can become the ultimate Snake champion!
 
 ---
 
 ### User Stories
 
 #### For First-time Visitors
-    When first visiting the website, I want to be immediately drawn to the game area with a clear depiction of the Snake and a Play button that encourages me to start a game.
+- When first visiting the website, I want to be immediately drawn to the game area with a clear depiction of the Snake and a Play button that encourages me to start a game.
 #### For Returning Visitors
-    As a returning visitor, I aim to play the game again and challenge myself to surpass the existing High Scores.
+- As a returning visitor, I aim to play the game again and challenge myself to surpass the existing High Scores.
 #### For Frequent Users
-    For those who frequently play the game, my goal is to continually improve and strive to achieve the highest scores on the leaderboard.
+- For those who frequently play the game, my goal is to continually improve and strive to achieve the highest scores on the leaderboard.
 
 ---
 
 ### Features
 
-    Classic Gameplay: Enjoy the timeless fun of guiding the snake to eat food and grow longer.
-    High Scores: Compete with friends and aim for the top spot on the high scores table.
-    Responsive Design: Play on various devices, as the game adapts to different screen sizes.
+- Classic Gameplay Enjoy the timeless fun of guiding the snake to eat food and grow longer.
+- High Scores: Compete with friends and aim for the top spot on the high scores table.
+- Responsive Design: Play on various devices, as the game adapts to different screen sizes.
 
 ---
 
 ### Existing Features
 
 #### Classic Snake Gameplay
-    Experience the nostalgia of the original Snake game, where you control a snake to collect food and grow longer. Avoid collisions with walls and your own tail to stay in the game.
+- Experience the nostalgia of the original Snake game, where you control a snake to collect food and grow longer. Avoid collisions with walls and your own tail to stay in the game.
 
 <img src="assets\images\README-images\snake_board.png" alt="Picture of Snake Play board" width= 600px>
 
@@ -130,6 +130,15 @@ A brief history can be found here: https://www.digit.in/features/mobile-phones/a
 ### Testing 
 
 <details>
+<summary>Linter - PASS</summary>
+
+  - Javascript tested on both sites with no significant errors
+
+    - [JSHint](https://jshint.com/)
+    - [JSLint](https://www.jslint.com/)
+</details>
+
+<details>
 <summary>Lighthouse  -  PASS</summary>
 
 - Mobile
@@ -178,33 +187,38 @@ A brief history can be found here: https://www.digit.in/features/mobile-phones/a
 
 ##### High Score Table Headers Not Displaying:
 
-    Issue: The high score table headers were not showing up in the table.
-    Resolution: The code was modified to target only the tbody of the table, leaving the headers intact.
+Issue: The high score table headers were not showing up in the table.
+Resolution: The code was modified to target only the tbody of the table, leaving the headers intact.
 
 ##### Scrolling Interference During Gameplay:
 
-    Issue: Scrolling was not disabled while the game was running, causing interference.
-    Resolution: JavaScript was used to disable scrolling during gameplay and re-enable it when the game ends.
+Issue: Scrolling was not disabled while the game was running, causing interference.
+Resolution: JavaScript was used to disable scrolling during gameplay and re-enable it when the game ends.
 
 ##### Modal Not Updating High Scores Table:
 
-    Issue: The modal was not updating the high scores table after entering the player's name.
-    Resolution: The code was restructured to ensure that the high scores table updates correctly after entering the player's name in the modal.
+Issue: The modal was not updating the high scores table after entering the player's name.
+Resolution: The code was restructured to ensure that the high scores table updates correctly after entering the player's name in the modal.
 
 ##### Mobile Button Layout Issue:
 
-    Issue: The on-screen buttons for mobile had spacing issues.
-    Resolution: The layout of on-screen buttons was adjusted to ensure proper spacing and alignment.
+Issue: The on-screen buttons for mobile had spacing issues.
+Resolution: The layout of on-screen buttons was adjusted to ensure proper spacing and alignment.
 
 ##### Modal Display Issue:
 
-    Issue: The modal was not displaying after game over.
-    Resolution: JavaScript was used to trigger the modal's display when the game ends.
+Issue: The modal was not displaying after game over.
+Resolution: JavaScript was used to trigger the modal's display when the game ends.
+
+##### Arrow Keys Scrolling Page:
+
+Issue: Arrow keys were scrolling the webpage in addition to controlling the game.
+Resolution: JavaScript was added to prevent the arrow keys from scrolling the webpage during gameplay.
 
 ##### White Space in High Score Table:
 
-    Issue: Entries in the high score table had default values of "000" for score and empty for name, even before any scores were added.
-    Resolution: JavaScript code was implemented to display blank entries in the high score table until scores are added.
+Issue: Entries in the high score table had default values of "000" for score and empty for name, even before any scores were added.
+Resolution: JavaScript code was implemented to display blank entries in the high score table until scores are added.
 
 
 
@@ -231,7 +245,7 @@ GitHub Pages used to deploy live version of the website.
 ### Design
 
 #### Colour Scheme
-- The color scheme was selected to emulate the design of the Nokia 3310, featuring a transition from the iconic blue casing to subtle gray accents and a vibrant green screen.
+- The color scheme was selected to emulate the design of the Nokia 3310, featuring a transition from the iconic blue casing to subtle gray accents and a vibrant green screen. All design was first tested on Figma.
     - Primary Background Colour
 
         ![#39406C](https://placehold.it/150x40/39406c/FFFFFF?text=39406c)
@@ -289,6 +303,8 @@ GitHub Pages used to deploy live version of the website.
     - Used to make sure colours are compliant.
 - [Adobe Color](https://color.adobe.com/create/color-wheel)
     - Used to select colours on the site
+- [Figma](https://www.figma.com/)
+    - Used to test webpage layout and design
 
 ---
 

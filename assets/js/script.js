@@ -7,7 +7,7 @@ let snake = [
   { x: 140, y: 60 },
   { x: 130, y: 60 },
   { x: 120, y: 60 },
-  { x: 110, y: 60 },
+  { x: 110, y: 60 }
 ];
 
 //GLOBAL VARIABLES
@@ -39,7 +39,7 @@ const highScores = [
   { name: "LOG", score: "013" },
   { name: "EVA", score: "008" },
   { name: "ANNE", score: "005" },
-  { name: "FRED", score: "001" },
+  { name: "FRED", score: "001" }
 ];
 const highScoresTable = document.querySelector("#highScores");
 
@@ -104,8 +104,8 @@ function startGame() {
     resetGame();
     gameStarted = true; // Set the game as started
     //Disable scrolling while game if ongoing
-    document.body.style.overflow = 'hidden';
-        // Start the game loop
+    document.body.style.overflow = "hidden";
+    // Start the game loop
     main();
     console.log("startGame has run");
   }
@@ -116,7 +116,8 @@ function startGame() {
  */
 function main() {
   changingDirection = false;
-  clearTimeout(gameLoopTimeout); // Clear existing timeout
+  // Clear existing timeout
+  clearTimeout(gameLoopTimeout);
 
   gameLoopTimeout = setTimeout(function onTick() {
     clearBoard();
@@ -126,11 +127,14 @@ function main() {
     gameEnd();
 
     if (!hasGameEnded()) {
-      main(); // Continue the game loop if the game hasn't ended
+      // Continue the game loop if the game hasn't ended
+      main();
     } else {
-      gameStarted = false; // Reset gameStarted when the game ends
+      // Reset gameStarted when the game ends
+      gameStarted = false;
     }
-  }, 100); // game loop 100ms or 10 times per second
+    // game loop 100ms or 10 times per second
+  }, 100);
 }
 
 /**
@@ -144,7 +148,7 @@ function resetGame() {
     { x: 140, y: 60 },
     { x: 130, y: 60 },
     { x: 120, y: 60 },
-    { x: 110, y: 60 },
+    { x: 110, y: 60 }
   ];
   dx = 10;
   dy = 0;
@@ -213,12 +217,13 @@ function hasGameEnded() {
 function gameEnd() {
   if (hasGameEnded()) {
     //Enable scrolling when game is over
-    document.body.style.overflow = 'auto';
+    document.body.style.overflow = "auto";
     // Check if the game has ended and score is greater than 0
     let lowestHighScore = highScores[highScores.length - 1];
 
     if (!lowestHighScore || score > lowestHighScore.score) {
-      gameOverModal.showModal(); // Show modal
+      // Show modal
+      gameOverModal.showModal();
     }
   }
 }
@@ -238,7 +243,7 @@ function genFood() {
   foodX = randomFood(0, snakeboard.width - 10);
   // Generate a random number for the food y-coordinate
   foodY = randomFood(0, snakeboard.height - 10);
-  // if the new food location is where the snake currently is, generate a new food location
+  // if the snake is on the food location pick a new spot
   snake.forEach(function hasSnakeEatenFood(part) {
     const hasEaten = part.x == foodX && part.y == foodY;
     if (hasEaten) genFood();
@@ -317,7 +322,8 @@ function moveSnake() {
  */
 function gameOver() {
   gameOverModal.close();
-  playerName = playerNameInput.value.trim().toUpperCase(); // Trim any leading/trailing whitespace and make Upper case
+  // Trim any leading/trailing whitespace and make Upper case
+  playerName = playerNameInput.value.trim().toUpperCase();
   // If the player entered a name (not empty)
   if (playerName !== "") {
     // Display the updated high scores table
@@ -342,7 +348,7 @@ function updateHighScoresTable(name, score) {
   // Clear the table body
   tbody.innerHTML = "";
 
-  // Display only the top 'maxHighScores' entries
+  // Display only the top maxHighScores entries
   const displayedHighScores = highScores.slice(0, maxHighScores);
 
   for (let i = 0; i < displayedHighScores.length; i++) {
